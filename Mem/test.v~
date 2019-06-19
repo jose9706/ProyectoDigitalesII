@@ -1,0 +1,41 @@
+`include "pro.v"
+`include "mem.v"
+
+parameter DATA_WIDTH = 6;
+parameter ADDR_WIDTH =8;
+
+module test;
+
+	/*AUTOWIRE*/
+	// Beginning of automatic wires (for undeclared instantiated-module outputs)
+	wire		RESET_L;		// From B of pro.v
+	wire [5:0]	address;		// From B of pro.v
+	wire		clk;			// From B of pro.v
+	wire [DATA_WIDTH-1:0] data;		// To/From A of mem.v
+	wire [5:0]	data_in;		// From B of pro.v
+	wire		write_enable;		// From B of pro.v
+	// End of automatics
+
+
+	mem A(/*AUTOINST*/
+	      // Inouts
+	      .data			(data[DATA_WIDTH-1:0]),
+	      // Inputs
+	      .clk			(clk),
+	      .address			(address[ADDR_WIDTH-1:0]),
+	      .we			(we),
+	      .oe			(oe));
+
+
+	pro B(/*AUTOINST*/
+	      // Outputs
+	      .clk			(clk),
+	      .RESET_L			(RESET_L),
+	      .address			(address[5:0]),
+	      .data_in			(data_in[5:0]),
+	      .write_enable		(write_enable));
+	
+
+
+
+endmodule
