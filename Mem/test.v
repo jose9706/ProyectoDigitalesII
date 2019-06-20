@@ -12,10 +12,13 @@ parameter ADDR_WIDTH =3;
 	wire [2:0]	address;		// From B of pro.v
 	wire		clk;			// From B of pro.v
 	wire [5:0]	data;			// From B of pro.v
-	wire [DATA_WIDTH-1:0] data_out;		// From A of mem.v, ..., Couldn't Merge
-	wire		err;			// From A of mem.v, ...
+	wire [DATA_WIDTH-1:0] data_out;		// From A of mem.v
+	wire		err;			// From A of mem.v
 	wire		read;			// From B of pro.v
-	wire		valid_out;		// From A of mem.v, ...
+	wire [5:0]	synth_data_out;		// From F of synth_mem.v
+	wire		synth_err;		// From F of synth_mem.v
+	wire		synth_valid_out;	// From F of synth_mem.v
+	wire		valid_out;		// From A of mem.v
 	wire		write;			// From B of pro.v
 	// End of automatics
 
@@ -46,9 +49,9 @@ parameter ADDR_WIDTH =3;
    
    synth_mem F(/*AUTOINST*/
 	       // Outputs
-	       .data_out		(data_out[5:0]),
-	       .err			(err),
-	       .valid_out		(valid_out),
+	       .synth_data_out		(synth_data_out[5:0]),
+	       .synth_err		(synth_err),
+	       .synth_valid_out		(synth_valid_out),
 	       // Inputs
 	       .RESET_L			(RESET_L),
 	       .address			(address[2:0]),

@@ -41,16 +41,23 @@ always @ (posedge clk or negedge RESET_L) begin
         err <= 0;
     end 
     else begin
-        if(write && !read) begin
+        if(write && ~read) begin
             mem[address] <= data;
             valid_out <= 0;
+            err <= 0;
         end
-        if(read && !write) begin
+        if(read && ~write) begin
             data_out <= mem[address];
             valid_out <= 1;
+            err <= 0;
         end
         if(write && read) begin
             err<=1;
+            valid_out<=0;
+            data_out <= 0;
+        end
+        if(~write && ~read) begin
+            err<=0;
             valid_out<=0;
             data_out <= 0;
         end
