@@ -38,8 +38,9 @@ module pro(output reg clk,
             data<='h8;
             address<=7;
             @(posedge clk);
-            @(posedge clk);
             write<=0;
+            @(posedge clk);
+            
             read<=1;
             address<=0;
             @(posedge clk);
@@ -57,16 +58,78 @@ module pro(output reg clk,
             @(posedge clk);
             address<=7;
             @(posedge clk);
+            read <= 0;
             @(posedge clk);
 
+            @(posedge clk);
         end
-        @(posedge clk);
-        read<=1;
-        write<=1;
-        @(posedge clk);
-        @(posedge clk);
+         write<=1;
+         data<='h1;
+         address<=0;
+         @(posedge clk);
+         data<='h2;
+         address<=1;
+         @(posedge clk);
+         data<='h3;
+         address<=2;
+         @(posedge clk);
+         data<='h4;
+         address<=3;
+         @(posedge clk);
+         data<='h5;
+         address<=4;
+         @(posedge clk);
+         data<='h6;
+         address<=5;
+         @(posedge clk);
+         data<='h7;
+         address<=6;
+         @(posedge clk);
+         data<='h8;
+         address<=7;
+         @(posedge clk);
+         @(posedge clk);
 
-
+         write<=0;
+         read<=1;
+         address<=3;
+         @(posedge clk);
+         address<=4;
+         @(posedge clk);
+         address<=1;
+         @(posedge clk);
+         address<=0;
+         @(posedge clk);
+         address<=0;
+         @(posedge clk);
+         address<=7;
+         @(posedge clk);
+         address<=5;
+         @(posedge clk);
+         address<=7;
+         @(posedge clk);
+         @(posedge clk);
+         @(posedge clk);
+         read<=1;
+         write<=1;
+         @(posedge clk);
+         @(posedge clk);
+         @(posedge clk);
+         write<=0;
+         @(posedge clk);
+         @(posedge clk);
+         @(posedge clk);
+         read<=0;
+         @(posedge clk);
+         write <= 1;
+         data <= 'hB;
+         address <= 0;
+         @(posedge clk);
+         write<=0;
+         read<=1;
+         address<=0;
+         @(posedge clk);
+         @(posedge clk);
         $finish;
 
     end
