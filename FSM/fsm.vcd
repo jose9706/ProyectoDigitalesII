@@ -1,0 +1,227 @@
+$date
+	Fri Jun 21 12:08:42 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module fsm_tb $end
+$var wire 5 ! vco_l [4:0] $end
+$var wire 5 " vco_h [4:0] $end
+$var wire 5 # vc1_l [4:0] $end
+$var wire 5 $ vc1_h [4:0] $end
+$var wire 1 % reset $end
+$var wire 5 & mf_l [4:0] $end
+$var wire 5 ' mf_h [4:0] $end
+$var wire 5 ( main_fifo_low [4:0] $end
+$var wire 5 ) main_fifo_high [4:0] $end
+$var wire 1 * init $end
+$var wire 1 + idle_out $end
+$var wire 5 , errors [4:0] $end
+$var wire 1 - error_out $end
+$var wire 5 . empties [4:0] $end
+$var wire 5 / do_l [4:0] $end
+$var wire 5 0 do_h [4:0] $end
+$var wire 5 1 d1_l [4:0] $end
+$var wire 5 2 d1_h [4:0] $end
+$var wire 1 3 clk $end
+$var wire 1 4 active_out $end
+$var wire 5 5 Vco_low [4:0] $end
+$var wire 5 6 Vco_high [4:0] $end
+$var wire 5 7 Vc1_low [4:0] $end
+$var wire 5 8 Vc1_high [4:0] $end
+$var wire 5 9 Do_low [4:0] $end
+$var wire 5 : Do_high [4:0] $end
+$var wire 5 ; D1_low [4:0] $end
+$var wire 5 < D1_high [4:0] $end
+$scope module master $end
+$var reg 5 = D1_high [4:0] $end
+$var reg 5 > D1_low [4:0] $end
+$var reg 5 ? Do_high [4:0] $end
+$var reg 5 @ Do_low [4:0] $end
+$var reg 5 A Vc1_high [4:0] $end
+$var reg 5 B Vc1_low [4:0] $end
+$var reg 5 C Vco_high [4:0] $end
+$var reg 5 D Vco_low [4:0] $end
+$var reg 1 3 clk $end
+$var reg 5 E empties [4:0] $end
+$var reg 5 F errors [4:0] $end
+$var reg 1 * init $end
+$var reg 5 G main_fifo_high [4:0] $end
+$var reg 5 H main_fifo_low [4:0] $end
+$var reg 1 % reset $end
+$upscope $end
+$scope module slave $end
+$var wire 5 I D1_high [4:0] $end
+$var wire 5 J D1_low [4:0] $end
+$var wire 5 K Do_high [4:0] $end
+$var wire 5 L Do_low [4:0] $end
+$var wire 5 M Vc1_high [4:0] $end
+$var wire 5 N Vc1_low [4:0] $end
+$var wire 5 O Vco_high [4:0] $end
+$var wire 5 P Vco_low [4:0] $end
+$var wire 1 3 clk $end
+$var wire 5 Q empties [4:0] $end
+$var wire 5 R errors [4:0] $end
+$var wire 1 * init $end
+$var wire 5 S main_fifo_high [4:0] $end
+$var wire 5 T main_fifo_low [4:0] $end
+$var wire 1 % reset $end
+$var reg 1 4 active_out $end
+$var reg 5 U d1_h [4:0] $end
+$var reg 5 V d1_l [4:0] $end
+$var reg 5 W do_h [4:0] $end
+$var reg 5 X do_l [4:0] $end
+$var reg 1 - error_out $end
+$var reg 1 + idle_out $end
+$var reg 1 Y lol $end
+$var reg 5 Z mf_h [4:0] $end
+$var reg 5 [ mf_l [4:0] $end
+$var reg 3 \ next_state [2:0] $end
+$var reg 3 ] state [2:0] $end
+$var reg 5 ^ vc1_h [4:0] $end
+$var reg 5 _ vc1_l [4:0] $end
+$var reg 5 ` vco_h [4:0] $end
+$var reg 5 a vco_l [4:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx a
+bx `
+bx _
+bx ^
+bx ]
+b0 \
+bx [
+bx Z
+xY
+bx X
+bx W
+bx V
+bx U
+b0 T
+b0 S
+b0 R
+b0 Q
+b0 P
+b0 O
+b0 N
+b0 M
+b0 L
+b1 K
+b0 J
+b10 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+b0 A
+b0 @
+b1 ?
+b0 >
+b10 =
+b10 <
+b0 ;
+b1 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+04
+03
+bx 2
+bx 1
+bx 0
+bx /
+b0 .
+0-
+b0 ,
+0+
+0*
+b0 )
+b0 (
+bx '
+bx &
+0%
+bx $
+bx #
+bx "
+bx !
+$end
+#2
+b1 \
+0Y
+b0 ]
+1%
+13
+#4
+03
+#6
+b10 \
+b0 &
+b0 [
+b0 '
+b0 Z
+b0 !
+b0 a
+b0 "
+b0 `
+b0 #
+b0 _
+b0 $
+b0 ^
+b0 /
+b0 X
+b0 0
+b0 W
+b0 1
+b0 V
+b0 2
+b0 U
+b1 ]
+13
+#8
+03
+#10
+1+
+b10 2
+b10 U
+b1 0
+b1 W
+b10 ]
+13
+#12
+03
+#14
+13
+#16
+03
+#18
+b11 \
+0+
+b1 .
+b1 E
+b1 Q
+13
+#20
+03
+#22
+14
+b11 ]
+13
+#24
+03
+#26
+13
+#28
+03
+#30
+13

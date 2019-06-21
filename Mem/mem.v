@@ -1,7 +1,8 @@
 
 module mem (
 clk,
-address,
+address_read,
+address_write,
 data,
 write,
 read,
@@ -18,7 +19,8 @@ parameter RAM_DEPTH = 8;
 
 //I/O
 input clk;
-input [ADDR_WIDTH-1:0] address;
+input [ADDR_WIDTH-1:0] address_read;
+input [ADDR_WIDTH-1:0] address_write;
 input write;
 input read;
 input [DATA_WIDTH-1:0] data;
@@ -42,19 +44,26 @@ always @ (posedge clk or negedge RESET_L) begin
     end 
     else begin
         if(write && ~read) begin
-            mem[address] <= data;
+            mem[address_write] <= data;
             valid_out <= 0;
             err <= 0;
         end
         if(read && ~write) begin
-            data_out <= mem[address];
+            data_out <= mem[address_read];
             valid_out <= 1;
             err <= 0;
         end
         if(write && read) begin
-            err<=1;
-            valid_out<=0;
-            data_out <= 0;
+            if(address_read != address_write) begin
+                data_out <= mem[address_read];
+                mem[address_write] <= data;
+                valid_out<=1;
+                err<=0;
+            end else begin
+                valid_out<=0;
+                data_out<=0;
+                err<=1;
+            end
         end
         if(~write && ~read) begin
             err<=0;

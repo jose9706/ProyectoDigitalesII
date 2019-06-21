@@ -9,7 +9,8 @@ parameter ADDR_WIDTH =3;
 	/*AUTOWIRE*/
 	// Beginning of automatic wires (for undeclared instantiated-module outputs)
 	wire		RESET_L;		// From B of pro.v
-	wire [2:0]	address;		// From B of pro.v
+	wire [2:0]	address_read;		// From B of pro.v
+	wire [2:0]	address_write;		// From B of pro.v
 	wire		clk;			// From B of pro.v
 	wire [5:0]	data;			// From B of pro.v
 	wire [DATA_WIDTH-1:0] data_out;		// From A of mem.v
@@ -30,7 +31,8 @@ parameter ADDR_WIDTH =3;
 	      .err			(err),
 	      // Inputs
 	      .clk			(clk),
-	      .address			(address[ADDR_WIDTH-1:0]),
+	      .address_read		(address_read[ADDR_WIDTH-1:0]),
+	      .address_write		(address_write[ADDR_WIDTH-1:0]),
 	      .write			(write),
 	      .read			(read),
 	      .data			(data[DATA_WIDTH-1:0]),
@@ -41,7 +43,8 @@ parameter ADDR_WIDTH =3;
 	      // Outputs
 	      .clk			(clk),
 	      .RESET_L			(RESET_L),
-	      .address			(address[2:0]),
+	      .address_write		(address_write[2:0]),
+	      .address_read		(address_read[2:0]),
 	      .data			(data[5:0]),
 	      .write			(write),
 	      .read			(read));
@@ -54,7 +57,8 @@ parameter ADDR_WIDTH =3;
 	       .synth_valid_out		(synth_valid_out),
 	       // Inputs
 	       .RESET_L			(RESET_L),
-	       .address			(address[2:0]),
+	       .address_read		(address_read[2:0]),
+	       .address_write		(address_write[2:0]),
 	       .clk			(clk),
 	       .data			(data[5:0]),
 	       .read			(read),
