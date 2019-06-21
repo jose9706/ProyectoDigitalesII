@@ -1,0 +1,62 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Wed Jun 19 18:21:17 2019
+[*]
+[dumpfile] "/home/alberto/github/ProyectoDigitalesII/Mem/test.vcd"
+[dumpfile_mtime] "Wed Jun 19 18:16:42 2019"
+[dumpfile_size] 58114
+[savefile] "/home/alberto/github/ProyectoDigitalesII/Mem/Mem.gtkw"
+[timestart] 0
+[size] 1853 1025
+[pos] -587 -100
+*-3.613094 85 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test.
+[treeopen] test.F.
+[sst_width] 223
+[signals_width] 157
+[sst_expanded] 1
+[sst_vpaned_height] 302
+@200
+-Conductual
+@28
+test.A.RESET_L
+test.A.address[2:0]
+test.A.clk
+@22
+test.A.data[5:0]
+test.A.data_out[5:0]
+@28
+test.A.err
+@420
+test.A.i
+@28
+test.A.read
+test.A.valid_out
+test.A.write
+@200
+-Estruct
+@28
+test.F.RESET_L
+test.F.address[2:0]
+test.F.clk
+@22
+test.F.data[5:0]
+test.F.data_out[5:0]
+@28
+test.F.err
+test.F.read
+test.F.valid_out
+test.F.write
+@200
+-MemEstruct
+@22
+test.F.\mem[0][5:0]
+test.F.\mem[1][5:0]
+test.F.\mem[2][5:0]
+test.F.\mem[3][5:0]
+test.F.\mem[4][5:0]
+test.F.\mem[5][5:0]
+test.F.\mem[6][5:0]
+test.F.\mem[7][5:0]
+[pattern_trace] 1
+[pattern_trace] 0
