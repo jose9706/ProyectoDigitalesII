@@ -18,18 +18,11 @@ module fsm_prob(output reg clk,
     initial begin
         $dumpfile("fsm.vcd");
         $dumpvars;
-        {main_fifo_low, main_fifo_high} <=0;
-        {Vco_low, Vco_high} <= 0;
-        {Vc1_low, Vc1_high} <=0;
-        {Do_low, Do_high} <= 1;
-        {D1_low, D1_high} <=2;
-        empties <= 0;
-        errors<=0;
-        reset <= 0; 
-        init <= 0;
+        {empties, reset, errors, init, main_fifo_low, main_fifo_high, Vco_low, Vco_high, Vc1_low, Vc1_high, Do_low, Do_high, D1_low, D1_high} <=0;
         @(posedge clk); 
         reset <= 1;
-        @(posedge clk);
+        @(posedge clk);//primero se hace un recorrido de reset a idle
+        
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);

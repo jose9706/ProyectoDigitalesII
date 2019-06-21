@@ -1,5 +1,5 @@
 $date
-	Fri Jun 21 12:08:42 2019
+	Fri Jun 21 12:36:40 2019
 $end
 $version
 	Icarus Verilog
@@ -79,8 +79,8 @@ $var reg 1 + idle_out $end
 $var reg 1 Y lol $end
 $var reg 5 Z mf_h [4:0] $end
 $var reg 5 [ mf_l [4:0] $end
-$var reg 3 \ next_state [2:0] $end
-$var reg 3 ] state [2:0] $end
+$var reg 5 \ next_state [4:0] $end
+$var reg 5 ] state [4:0] $end
 $var reg 5 ^ vc1_h [4:0] $end
 $var reg 5 _ vc1_l [4:0] $end
 $var reg 5 ` vco_h [4:0] $end
@@ -95,7 +95,7 @@ bx `
 bx _
 bx ^
 bx ]
-b0 \
+b1 \
 bx [
 bx Z
 xY
@@ -112,9 +112,9 @@ b0 O
 b0 N
 b0 M
 b0 L
-b1 K
+b0 K
 b0 J
-b10 I
+b0 I
 b0 H
 b0 G
 b0 F
@@ -124,12 +124,12 @@ b0 C
 b0 B
 b0 A
 b0 @
-b1 ?
+b0 ?
 b0 >
-b10 =
-b10 <
+b0 =
+b0 <
 b0 ;
-b1 :
+b0 :
 b0 9
 b0 8
 b0 7
@@ -157,15 +157,15 @@ bx "
 bx !
 $end
 #2
-b1 \
+b10 \
 0Y
-b0 ]
+b1 ]
 1%
 13
 #4
 03
 #6
-b10 \
+b100 \
 b0 &
 b0 [
 b0 '
@@ -186,17 +186,13 @@ b0 1
 b0 V
 b0 2
 b0 U
-b1 ]
+b10 ]
 13
 #8
 03
 #10
 1+
-b10 2
-b10 U
-b1 0
-b1 W
-b10 ]
+b100 ]
 13
 #12
 03
@@ -205,7 +201,7 @@ b10 ]
 #16
 03
 #18
-b11 \
+b1000 \
 0+
 b1 .
 b1 E
@@ -215,7 +211,7 @@ b1 Q
 03
 #22
 14
-b11 ]
+b1000 ]
 13
 #24
 03

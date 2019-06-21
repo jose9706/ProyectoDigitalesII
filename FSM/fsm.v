@@ -31,15 +31,17 @@ module fsm (
 ); 
 
 
-parameter RESET='b000; //0
-parameter INIT='b001; //1
-parameter IDLE='b010; //2
-parameter ACTIVE='b011; //3
-parameter ERROR ='b100; //4
+parameter SIZE = 5;
+parameter RESET = 5'b00001;
+parameter INIT = 5'b00010;
+parameter IDLE = 5'b00100;
+parameter ACTIVE = 5'b01000;
+parameter ERROR = 5'b10000;
 
+reg [SIZE-1:0]  state;
+reg [SIZE-1:0]  next_state;
 reg lol;
-reg [2:0] state; 
-reg [2:0] next_state; 
+
 
 always @(posedge clk) begin
 	if (~reset) begin 

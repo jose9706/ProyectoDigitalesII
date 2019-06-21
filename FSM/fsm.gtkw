@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Fri Jun 21 18:40:17 2019
+[*]
+[dumpfile] "/home/alejandro/Documents/git_repo/ProyectoDigitalesII/FSM/fsm.vcd"
+[dumpfile_mtime] "Fri Jun 21 18:36:40 2019"
+[dumpfile_size] 3115
+[savefile] "/home/alejandro/Documents/git_repo/ProyectoDigitalesII/FSM/fsm.gtkw"
+[timestart] 0
+[size] 1299 704
+[pos] -51 -1
+*-2.848183 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fsm_tb.
+[sst_width] 233
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 180
+@28
+fsm_tb.slave.clk
+@29
+fsm_tb.reset
+@200
+-estados
+@c00022
+fsm_tb.slave.next_state[4:0]
+@28
+(0)fsm_tb.slave.next_state[4:0]
+(1)fsm_tb.slave.next_state[4:0]
+(2)fsm_tb.slave.next_state[4:0]
+(3)fsm_tb.slave.next_state[4:0]
+(4)fsm_tb.slave.next_state[4:0]
+@1401200
+-group_end
+@22
+fsm_tb.slave.state[4:0]
+@200
+-MF
+@22
+fsm_tb.slave.main_fifo_high[4:0]
+fsm_tb.slave.main_fifo_low[4:0]
+[pattern_trace] 1
+[pattern_trace] 0
