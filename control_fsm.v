@@ -1,9 +1,12 @@
 module control_fsm (input clk,
                     input reset_L,
                     input init,
-                    input U_mf,
-                    input U_VC,
-                    input U_D,
+                    input [4:0] in_almost_full,
+                    input [4:0] in_almost_empty,
+                    input [4:0] FIFO_empty,
+                    input [4:0] FIFO_error,
+                    output reg [4:0] out_almost_full,
+                    output reg [4:0] out_almost_empty,
                     output reg error_out,
                     output reg active_out,
                     output reg idle_out);
@@ -17,6 +20,17 @@ parameter ERROR = 5'b10000;
 
 reg [SIZE-1:0]  state;
 reg [SIZE-1:0]  next_state;
+reg modify_umb;
+reg comodin;
+
+always @(posedge clk) begin
+    if (!reset_L) begin
+        modify_umb<=0;
+        state<=RESET;
+    end
+    else
+        state <= next_state;
+end
 
 
 always @(*) begin
@@ -26,33 +40,44 @@ always @(*) begin
     idle_out=0;
     case (state)
         RESET:begin
-            if (!reset_L)begin
                 //senales internas 0;
-                U_mf=0;
-                U_D=0;
-                U_VC=0;
+                out_almost_empty='b0;
+                out_almost_full='b0;
                 next_state=INIT;
-            end
         end
-        INIT: begin
-            if (init) begin
-                
+        INIT: begin   
+            out_almost_empty=in_almost_empty;
+            out_almost_full=in_almost_full;        
+            if(!init) begin
+                next_state=IDLE;
             end
+            else 
+                next_state=INIT;
         end 
         IDLE: begin
-            if(FIFO_empty) begin
-                idle_out=1;
+            idle_out=1;
+            if(&FIFO_empty)begin
+                idle_out=0;
+                next_state=ACTIVE;
             end
+            if (init)
+                next_state=INIT;    
         end
         ACTIVE: begin
-            if(!FIFO_empty) begin
-                active_out=1;
-            end
+            active_out=1;
+            if (init)
+                active_out=0;
+                next_state=INIT;
+            if (&FIFO_error)
+                active_out=0;
+                next_state=ERROR;    
         end
         ERROR: begin
-            if(!read && write && FIFO_full) begin
+            if(&FIFO_error) begin
                 error_out=1;
             end
+            if(!reset_L)
+                next_state=RESET;
         end
 
     endcase    
