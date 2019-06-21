@@ -1,6 +1,6 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Fri Jun 21 18:40:17 2019
+[*] Fri Jun 21 18:55:19 2019
 [*]
 [dumpfile] "/home/alejandro/Documents/git_repo/ProyectoDigitalesII/FSM/fsm.vcd"
 [dumpfile_mtime] "Fri Jun 21 18:36:40 2019"
@@ -9,16 +9,12 @@
 [timestart] 0
 [size] 1299 704
 [pos] -51 -1
-*-2.848183 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-2.612211 27 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] fsm_tb.
-[sst_width] 233
+[sst_width] 48
 [signals_width] 182
-[sst_expanded] 1
+[sst_expanded] 0
 [sst_vpaned_height] 180
-@28
-fsm_tb.slave.clk
-@29
-fsm_tb.reset
 @200
 -estados
 @c00022
@@ -34,9 +30,31 @@ fsm_tb.slave.next_state[4:0]
 @22
 fsm_tb.slave.state[4:0]
 @200
--MF
+-inputs
+@28
+fsm_tb.slave.clk
+fsm_tb.reset
+@22
+fsm_tb.empties[4:0]
+fsm_tb.errors[4:0]
+@28
+fsm_tb.init
 @22
 fsm_tb.slave.main_fifo_high[4:0]
 fsm_tb.slave.main_fifo_low[4:0]
+fsm_tb.D1_high[4:0]
+fsm_tb.D1_low[4:0]
+fsm_tb.Do_high[4:0]
+fsm_tb.Do_low[4:0]
+fsm_tb.Vc1_high[4:0]
+fsm_tb.Vc1_low[4:0]
+fsm_tb.Vco_high[4:0]
+fsm_tb.Vco_low[4:0]
+@200
+-outputs
+@28
+fsm_tb.error_out
+fsm_tb.idle_out
+fsm_tb.active_out
 [pattern_trace] 1
 [pattern_trace] 0

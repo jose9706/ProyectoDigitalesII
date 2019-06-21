@@ -22,11 +22,19 @@ module fsm_prob(output reg clk,
         @(posedge clk); 
         reset <= 1;
         @(posedge clk);//primero se hace un recorrido de reset a idle
-        
+
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
         empties <= 1;
+        @(posedge clk);
+        @(posedge clk);
+        errors <=1;
+        @(posedge clk);
+        @(posedge clk);
+        reset<=0;
+        @(posedge clk);
+        reset<=1;
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
