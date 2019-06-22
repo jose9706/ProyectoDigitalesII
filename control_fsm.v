@@ -30,6 +30,14 @@ always @(posedge clk) begin
     end
     else
         state <= next_state;
+        if(state==RESET) begin
+            out_almost_empty<='b0;
+            out_almost_full<='b0;    
+        end
+        if(state==INIT) begin
+            in_almost_empty<=out_almost_empty;
+            in_almost_full<=out_almost_full;        
+        end
 end
 
 
@@ -40,9 +48,6 @@ always @(*) begin
     idle_out=0;
     case (state)
         RESET:begin
-                //senales internas 0;
-                out_almost_empty='b0;
-                out_almost_full='b0;
                 next_state=INIT;
         end
         INIT: begin   
@@ -78,6 +83,11 @@ always @(*) begin
             end
             if(!reset_L)
                 next_state=RESET;
+        end
+
+        default: begin
+            next_state=RESET; 
+
         end
 
     endcase    
