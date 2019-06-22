@@ -21,13 +21,23 @@ module fsm_prob(output reg clk,
         {empties, reset, errors, init, main_fifo_low, main_fifo_high, Vco_low, Vco_high, Vc1_low, Vc1_high, Do_low, Do_high, D1_low, D1_high} <=0;
         @(posedge clk); 
         reset <= 1;
-        @(posedge clk);//primero se hace un recorrido de reset a idle
-
         @(posedge clk);
+        main_fifo_low<='h3;
+        Vc1_low<='hA;
+        Vco_low<='hB;
+        Do_low<='hC;
+        D1_low<='hD;
+        @(posedge clk);
+        main_fifo_high<='h6;
+        Vc1_high<='h7;
+        Vco_high<='h8;
+        Do_high<='h9;
+        D1_high<='hA;
         @(posedge clk);
         @(posedge clk);
         empties <= 1;
         @(posedge clk);
+        {main_fifo_low, main_fifo_high, Vco_low, Vco_high, Vc1_low, Vc1_high, Do_low, Do_high, D1_low, D1_high} <=0;
         @(posedge clk);
         errors <=1;
         @(posedge clk);
