@@ -86,25 +86,31 @@ module fsm (input clk,
                 end
                 
             IDLE: begin
-                if (empties == 0) begin //si todos empties
-                    idle_out   = 1;  //esta esperando
-                    next_state = IDLE;
-                    end else begin //nada más espera si no
-                        idle_out   = 0;
-                        next_state = ACTIVE;
+                if(init) next_state = init; 
+                else begin       
+                    if (empties == 0) begin //si todos empties
+                        idle_out   = 1;  //esta esperando
+                        next_state = IDLE;
+                        end else begin //nada más espera si no
+                            idle_out   = 0;
+                            next_state = ACTIVE;
+                        end
                     end
                 end
-                    
                     
             ACTIVE: begin
-                if (errors[4:0] == 0)begin
-                    next_state = ACTIVE;
-                    active_out = 1;
-                    end else if (errors[4:0]> = 1) begin
-                        next_state = ERROR;
-                        active_out = 0;
-                    end
+                if(init) next_state = init;
+                else begin
+                    if (errors[4:0] == 0)begin
+                        next_state = ACTIVE;
+                        active_out = 1;
+                        end else if (errors[4:0]> = 1) begin
+                            next_state = ERROR;
+                            active_out = 0;
+                        end
+                    end    
                 end
+                
                         
                         
             ERROR: begin
@@ -124,8 +130,6 @@ module fsm (input clk,
                         
         endcase
     end
-    
-    
     
     
 endmodule
