@@ -27,17 +27,14 @@ module fsm_prob(output reg clk,
         Vco_low<='hB;
         Do_low<='hC;
         D1_low<='hD;
-<<<<<<< HEAD
         @(posedge clk);
-        init<=0;
-=======
->>>>>>> 6cbb4b1fdcb36a91af406c8b163a3f1cc1c8d046
         main_fifo_high<='h6;
         Vc1_high<='h7;
         Vco_high<='h8;
         Do_high<='h9;
         D1_high<='hA;
         @(posedge clk);
+        init<=1;
 
         @(posedge clk);
         @(posedge clk);
@@ -49,6 +46,7 @@ module fsm_prob(output reg clk,
         @(posedge clk);
         @(posedge clk);
         reset<=0;
+        init<=0;
         @(posedge clk);
         reset<=1;
         @(posedge clk);
