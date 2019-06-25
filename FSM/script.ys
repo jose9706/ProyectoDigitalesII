@@ -1,0 +1,18 @@
+read_verilog fsm.v
+
+hierarchy -check -top mem
+
+proc; opt; fsm; opt; memory; opt
+
+
+techmap; opt
+
+dfflibmap -liberty cmos_cells.lib
+
+abc -liberty cmos_cells.lib
+
+clean 
+
+show -lib cmos_cells.v
+
+write_verilog synth_fsm.v
