@@ -1,6 +1,7 @@
 read_verilog fsm.v
 
-hierarchy -check -top mem
+hierarchy -check -top fsm
+
 
 proc; opt; fsm; opt; memory; opt
 

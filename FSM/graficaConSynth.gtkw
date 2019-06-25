@@ -1,0 +1,81 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue Jun 25 22:23:49 2019
+[*]
+[dumpfile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/ProyectoDigitalesII/FSM/fsm.vcd"
+[dumpfile_mtime] "Tue Jun 25 22:16:06 2019"
+[dumpfile_size] 41945
+[savefile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/ProyectoDigitalesII/FSM/graficaConSynth.gtkw"
+[timestart] 0
+[size] 1299 713
+[pos] -67 -67
+*-4.085366 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fsm_tb.
+[sst_width] 223
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 192
+@200
+-Estados
+@22
+fsm_tb.slave.state[4:0]
+fsm_tb.slave.next_state[4:0]
+@200
+-Inputs
+@28
+fsm_tb.master.clk
+fsm_tb.master.reset
+@22
+fsm_tb.master.empties[4:0]
+fsm_tb.master.errors[4:0]
+@28
+fsm_tb.master.init
+@22
+fsm_tb.master.main_fifo_high[4:0]
+fsm_tb.master.Vco_high[4:0]
+fsm_tb.master.Vc1_high[4:0]
+fsm_tb.master.Do_high[4:0]
+fsm_tb.master.D1_high[4:0]
+fsm_tb.master.main_fifo_low[4:0]
+fsm_tb.master.Vco_low[4:0]
+fsm_tb.master.Vc1_low[4:0]
+fsm_tb.master.Do_low[4:0]
+fsm_tb.master.D1_low[4:0]
+@200
+-outputs
+@28
+fsm_tb.slave.error_out
+fsm_tb.slave.idle_out
+fsm_tb.slave.active_out
+@22
+fsm_tb.slave.mf_h[4:0]
+fsm_tb.slave.vco_h[4:0]
+fsm_tb.slave.vc1_h[4:0]
+fsm_tb.slave.do_h[4:0]
+fsm_tb.slave.d1_h[4:0]
+fsm_tb.slave.mf_l[4:0]
+fsm_tb.slave.vco_l[4:0]
+fsm_tb.slave.vc1_l[4:0]
+fsm_tb.slave.do_l[4:0]
+fsm_tb.slave.d1_l[4:0]
+@200
+-Outputs SYnth
+@28
+fsm_tb.synth.synth_error_out
+fsm_tb.synth.synth_idle_out
+fsm_tb.synth.synth_active_out
+@22
+fsm_tb.synth.synth_mf_h[4:0]
+fsm_tb.synth.synth_vco_h[4:0]
+fsm_tb.synth.synth_vc1_h[4:0]
+fsm_tb.synth.synth_do_h[4:0]
+fsm_tb.synth.synth_d1_h[4:0]
+fsm_tb.synth.synth_mf_h[4:0]
+fsm_tb.synth.synth_mf_l[4:0]
+fsm_tb.synth.synth_vco_l[4:0]
+fsm_tb.synth.synth_vc1_l[4:0]
+fsm_tb.synth.synth_do_l[4:0]
+@23
+fsm_tb.synth.synth_d1_l[4:0]
+[pattern_trace] 1
+[pattern_trace] 0
