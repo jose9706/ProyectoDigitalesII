@@ -58,7 +58,7 @@ module fifo(input clk,
                     counter<=counter;
                 end    
                 else begin 
-                    if (wr_ptr == FIFO_SIZE) begin
+                    if (wr_ptr == FIFO_SIZE-1) begin
                         wr_ptr <= 0;
                         counter <= counter + 1; 
                         end else begin
@@ -75,6 +75,7 @@ module fifo(input clk,
         fifo_full     = 0;
         wr = 0;
         rd = 0;
+        err_full = 0;
         if (counter > 0) fifo_empty = 0;
         if (counter >= FIFO_SIZE) fifo_full = 1;
         if(fifo_wr) begin
@@ -95,7 +96,7 @@ module fifo(input clk,
         end else begin
             if (fifo_rd) begin
 
-                    if(rd_ptr == FIFO_SIZE) begin
+                    if(rd_ptr == FIFO_SIZE-1) begin
                         rd_ptr <= 0; 
                        // rd <= 1;
                         counter <= counter - 1; 
