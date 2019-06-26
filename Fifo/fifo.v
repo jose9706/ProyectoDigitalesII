@@ -12,10 +12,10 @@ module fifo(input clk,
     
     //Params.
     parameter FIFO_SIZE = 8;
-    
+    parameter PTR_ADRESS = 3;
     //Regs.
-    reg [FIFO_SIZE-1:0] wr_ptr;
-    reg [FIFO_SIZE-1:0] rd_ptr;
+    reg [PTR_ADRESS-1:0] wr_ptr;
+    reg [PTR_ADRESS-1:0] rd_ptr;
     wire ok;
     wire nada;
 
