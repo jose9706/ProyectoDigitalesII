@@ -47,19 +47,26 @@ module fifo(input clk,
             wr_ptr  <= 0;
             counter <= 0;
             err     <= 0;
+            wr<=0;
             rd<=0;
             end else begin
             if (fifo_wr) begin
                 if (fifo_empty) begin
                     wr_ptr  <= 0;
+                    wr      <= 1;
                     counter <= counter + 1;
                 end
                 if (wr_ptr == FIFO_SIZE) begin
                     wr_ptr <= 0;
                     counter <= counter + 1; 
                     end else begin
+                    if (fifo_full) begin
+                        err_full <= 1;
+                        end else begin
                         wr_ptr <= wr_ptr + 1;
+                        wr     <= 1;
                         counter <= counter + 1;
+                    end
                 end
                 
             end
@@ -69,18 +76,8 @@ module fifo(input clk,
     always @(*) begin
         fifo_empty    = 1;
         fifo_full     = 0;
-        wr = 0;
-        rd = 0;
-        if (counter > 0) fifo_empty = 0;
+        if (counter >= 0) fifo_empty = 0;
         if (counter == FIFO_SIZE) fifo_full = 1;
-        if(fifo_wr) begin
-            if(fifo_full) err_full = 1;
-            wr = 1;
-        end
-        if(fifo_rd) begin
-            if(fifo_empty ) err_full = 1;
-            rd =1;
-        end
     end
     
     //read logic:
@@ -90,18 +87,20 @@ module fifo(input clk,
             rd_ptr <= 0;
         end else begin
             if (fifo_rd) begin
-
+                if(fifo_empty) begin
+                    err_full <=1;
+                end else begin
                     if(rd_ptr == FIFO_SIZE) begin
                         rd_ptr <= 0; 
-                       // rd <= 1;
+                        rd <= 1;
                         counter <= counter - 1; 
                     end else begin
                         rd_ptr <= rd_ptr + 1;
                         counter <= counter - 1;
-                       // rd <= 1;
+                        rd <= 1;
                     end
                     
-                
+                end
             end
         end
 
@@ -112,3 +111,4 @@ module fifo(input clk,
     
 endmodule
     
+
