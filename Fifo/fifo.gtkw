@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Wed Jun 26 22:01:55 2019
+[*]
+[dumpfile] "/home/alejandro/Documents/git_repo/ProyectoDigitalesII/Fifo/fifo.vcd"
+[dumpfile_mtime] "Wed Jun 26 20:51:13 2019"
+[dumpfile_size] 3913
+[savefile] "/home/alejandro/Documents/git_repo/ProyectoDigitalesII/Fifo/fifo.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-5.363748 94 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fifo_tb.
+[sst_width] 233
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 144
+@28
+fifo_tb.fifo.RESET_L
+fifo_tb.fifo.clk
+@22
+fifo_tb.fifo.data_in[5:0]
+fifo_tb.fifo.data_out[5:0]
+@28
+fifo_tb.fifo.fifo_empty
+fifo_tb.fifo.fifo_full
+fifo_tb.fifo.fifo_rd
+@29
+fifo_tb.fifo.fifo_wr
+@28
+fifo_tb.fifo.rd
+@22
+fifo_tb.fifo.rd_ptr[7:0]
+@28
+fifo_tb.fifo.wr
+@22
+fifo_tb.fifo.wr_ptr[7:0]
+fifo_tb.fifo.counter[7:0]
+@28
+fifo_tb.fifo.err_full
+[pattern_trace] 1
+[pattern_trace] 0
