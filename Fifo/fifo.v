@@ -8,7 +8,7 @@ module fifo(input clk,
             output reg fifo_empty,
             output reg fifo_full,
             output wire [5:0] data_out,
-            output reg err_full);
+            output reg err_fifo);
     
     //Params.
     parameter FIFO_SIZE = 8;
@@ -19,7 +19,7 @@ module fifo(input clk,
     wire ok;
     wire nada;
 
-    reg err;
+    reg err_mem;
     reg wr;
     reg rd;
     reg [5:0] inner_data;
@@ -46,7 +46,7 @@ module fifo(input clk,
         if (~RESET_L) begin
             wr_ptr  <= 0;
             counter <= 0;
-            err     <= 0;
+            err_mem     <= 0;
             rd<=0;
             end else begin
             if (fifo_wr) begin
@@ -75,15 +75,15 @@ module fifo(input clk,
         fifo_full     = 0;
         wr = 0;
         rd = 0;
-        err_full = 0;
+        err_fifo = 0;
         if (counter > 0) fifo_empty = 0;
         if (counter >= FIFO_SIZE) fifo_full = 1;
         if(fifo_wr) begin
-            if(fifo_full) err_full = 1;
+            if(fifo_full) err_fifo = 1;
             wr = 1;
         end
         if(fifo_rd) begin
-            if(fifo_empty ) err_full = 1;
+            if(fifo_empty ) err_fifo = 1;
             rd =1;
         end
     end
@@ -95,18 +95,19 @@ module fifo(input clk,
             rd_ptr <= 0;
         end else begin
             if (fifo_rd) begin
-
+                    if(counter == 0) begin
+                        counter <= counter;
+                    end else begin
                     if(rd_ptr == FIFO_SIZE-1) begin
                         rd_ptr <= 0; 
                        // rd <= 1;
-                        counter <= counter - 1; 
+                            counter <= counter - 1;
                     end else begin
                         rd_ptr <= rd_ptr + 1;
-                        counter <= counter - 1;
+                            counter <= counter - 1;
                        // rd <= 1;
                     end
-                    
-                
+                   end   
             end
         end
 
