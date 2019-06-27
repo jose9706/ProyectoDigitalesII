@@ -36,6 +36,7 @@ module fifo_t(
         @(posedge clk);
         fifo_wr<=0;
         fifo_rd<=1;
+        data_in<='b0;
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
@@ -62,10 +63,35 @@ module fifo_t(
         fifo_wr<=0;
         @(posedge clk);
         fifo_rd<=1;
+        data_in<='b0;
         repeat (9) begin
         @(posedge clk);
         end
+        @(posedge clk); //probando error
+        fifo_wr<=1;
+        data_in<=6'b000000;
+        @(posedge clk);
+        data_in<=6'b000001;
+        @(posedge clk);
+        data_in<=6'b000010;
+        @(posedge clk);
+        data_in<=6'b000011;
+        @(posedge clk);
+        data_in<=6'b000100;
+        @(posedge clk);
+        data_in<=6'b000101;
+        @(posedge clk);
+        data_in<=6'b000110;
+        @(posedge clk);
+        data_in<=6'b000111;
+        @(posedge clk);
+        data_in<=6'b001000;
+        @(posedge clk);
+        data_in<=6'b001001;
+        @(posedge clk);
+        data_in<=6'b001010;
 
+        @(posedge clk);
 
         $finish;
     end
