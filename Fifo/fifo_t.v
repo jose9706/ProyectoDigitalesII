@@ -60,6 +60,7 @@ module fifo_t(
         data_in<=6'b000010;
         @(posedge clk);
         data_in<=6'b110000;
+        @(posedge clk);
         fifo_wr<=0;
         @(posedge clk);
         fifo_rd<=1;
