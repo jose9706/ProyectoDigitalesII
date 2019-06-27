@@ -1,4 +1,6 @@
 `include "fifo.v"
+//`include "synth_fifo.v"
+//`include "cmos_cells.v"
 `include "fifo_t.v"
 
 
@@ -43,5 +45,7 @@ module fifo_tb;
 		.fifo_full		(fifo_full),
 		.data_out		(data_out[5:0]),
 		.err_full		(err_full));
+
+//    synth_fifo synth(/*AUTOINST*/); 
     
 endmodule 
