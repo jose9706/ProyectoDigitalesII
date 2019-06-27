@@ -10,6 +10,8 @@ module fifo_tb;
     /*AUTOWIRE*/
     // Beginning of automatic wires (for undeclared instantiated-module outputs)
     wire		RESET_L;		// From prob of fifo_t.v
+    wire		al_empty;		// From fifo of fifo.v
+    wire		al_full;		// From fifo of fifo.v
     wire		clk;			// From prob of fifo_t.v
     wire [5:0]		data_in;		// From prob of fifo_t.v
     wire [5:0]		data_out;		// From fifo of fifo.v, ...
@@ -26,6 +28,8 @@ module fifo_tb;
 	      .fifo_full		(fifo_full),
 	      .data_out			(data_out[5:0]),
 	      .err_fifo			(err_fifo),
+	      .al_empty			(al_empty),
+	      .al_full			(al_full),
 	      // Inputs
 	      .clk			(clk),
 	      .RESET_L			(RESET_L),

@@ -8,7 +8,9 @@ module fifo(input clk,
             output reg fifo_empty,
             output reg fifo_full,
             output wire [5:0] data_out,
-            output reg err_fifo);
+            output reg err_fifo,
+            output reg al_empty,
+            output reg al_full );
     
     //Params.
     parameter FIFO_SIZE = 8;
@@ -35,6 +37,9 @@ module fifo(input clk,
     data_out,
     RESET_L,
     err_mem);
+    
+
+     
     
     
     //write logic:
@@ -63,7 +68,7 @@ module fifo(input clk,
                     end
                 end
             end
-            if (fifo_rd) begin
+            if (fifo_rd) begin //read logic
                     if(counter == 0) begin
                         counter <= counter;
                     end else begin
@@ -84,6 +89,8 @@ module fifo(input clk,
     always @(*) begin
         fifo_empty    = 1;
         fifo_full     = 0;
+        al_empty=0; 
+        al_full=0;     
         wr = 0;
         rd = 0;
         err_fifo = 0;
@@ -101,6 +108,14 @@ module fifo(input clk,
             if(fifo_empty) err_fifo = 1;
             rd =1;
         end
+        if(counter>=6) begin 
+            al_full=1; 
+        end
+
+        if(counter<=2)begin 
+            al_empty=1; 
+        end
+
     end
     
     
