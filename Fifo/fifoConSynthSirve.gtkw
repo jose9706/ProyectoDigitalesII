@@ -1,0 +1,48 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Thu Jun 27 01:32:32 2019
+[*]
+[dumpfile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/BorradorMichael/Avance2Fifo/OtraCarpeta/fifo.vcd"
+[dumpfile_mtime] "Thu Jun 27 01:22:07 2019"
+[dumpfile_size] 114184
+[savefile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/BorradorMichael/Avance2Fifo/OtraCarpeta/fifoConSynthSirve.gtkw"
+[timestart] 0
+[size] 1299 713
+[pos] -51 -1
+*-5.262427 34 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fifo_tb.
+[treeopen] fifo_tb.synth.
+[sst_width] 223
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 192
+@200
+-Entradas
+@28
+fifo_tb.clk
+fifo_tb.RESET_L
+@22
+fifo_tb.data_in[5:0]
+@28
+fifo_tb.fifo_rd
+fifo_tb.fifo_wr
+@200
+-RTL salidas
+@28
+fifo_tb.fifo.fifo_empty
+fifo_tb.fifo.fifo_full
+@22
+fifo_tb.fifo.data_out[5:0]
+@28
+fifo_tb.fifo.err_fifo
+@200
+-Salidas Synth
+@28
+fifo_tb.synth.fifo_empty
+fifo_tb.synth.fifo_full
+@22
+fifo_tb.synth.data_out[5:0]
+@29
+fifo_tb.synth.err_fifo
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,6 +1,6 @@
 `include "fifo.v"
-//`include "synth_fifo.v"
-//`include "cmos_cells.v"
+`include "synth_fifo.v"
+`include "cmos_cells.v"
 `include "fifo_t.v"
 
 
@@ -12,10 +12,10 @@ module fifo_tb;
     wire		RESET_L;		// From prob of fifo_t.v
     wire		clk;			// From prob of fifo_t.v
     wire [5:0]		data_in;		// From prob of fifo_t.v
-    wire [5:0]		data_out;		// From fifo of fifo.v
-    wire		err_full;		// From fifo of fifo.v
-    wire		fifo_empty;		// From fifo of fifo.v
-    wire		fifo_full;		// From fifo of fifo.v
+    wire [5:0]		data_out;		// From fifo of fifo.v, ...
+    wire		err_fifo;		// From fifo of fifo.v, ...
+    wire		fifo_empty;		// From fifo of fifo.v, ...
+    wire		fifo_full;		// From fifo of fifo.v, ...
     wire		fifo_rd;		// From prob of fifo_t.v
     wire		fifo_wr;		// From prob of fifo_t.v
     // End of automatics
@@ -25,7 +25,7 @@ module fifo_tb;
 	      .fifo_empty		(fifo_empty),
 	      .fifo_full		(fifo_full),
 	      .data_out			(data_out[5:0]),
-	      .err_full			(err_full),
+	      .err_fifo			(err_fifo),
 	      // Inputs
 	      .clk			(clk),
 	      .RESET_L			(RESET_L),
@@ -46,6 +46,17 @@ module fifo_tb;
 		.data_out		(data_out[5:0]),
 		.err_full		(err_full));
 
-//    synth_fifo synth(/*AUTOINST*/); 
+    synth_fifo synth(/*AUTOINST*/
+		     // Outputs
+		     .data_out		(data_out[5:0]),
+		     .err_fifo		(err_fifo),
+		     .fifo_empty	(fifo_empty),
+		     .fifo_full		(fifo_full),
+		     // Inputs
+		     .RESET_L		(RESET_L),
+		     .clk		(clk),
+		     .data_in		(data_in[5:0]),
+		     .fifo_rd		(fifo_rd),
+		     .fifo_wr		(fifo_wr)); 
     
 endmodule 
