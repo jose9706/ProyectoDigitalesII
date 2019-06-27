@@ -89,20 +89,25 @@ always @(*) begin
 
 
         INIT: begin 
-
-            if(init==0) begin 
-                next_state=IDLE; 
-            end else begin 
-                next_state=INIT; 
-            end 
+            if(~reset) begin
+                next_state = RESET;
+            end else begin
+                if(init==0) begin 
+                    next_state=IDLE; 
+                end else begin 
+                    next_state=INIT; 
+                end 
+            end
         end 
 
 
         IDLE: begin 
-             
-            if(init)
+            if(~reset) begin
+                next_state = RESET;
+            end else begin
+                if(init)
                 next_state=INIT; 
-            else begin
+                else begin
                 if(empties==0) begin //si todos empties 
                     idle_out=1;  //esta esperando 
                     next_state=IDLE; 
@@ -112,22 +117,26 @@ always @(*) begin
                 end
 
             end   
+            end
+           
         end 
 
 
         ACTIVE: begin 
-             
-            if (init) begin
-                next_state=INIT;
+            if(~reset) begin
+                next_state = RESET;
             end else begin
-                if(errors[4:0]==0)begin 
-                    next_state=ACTIVE;
-                    active_out=1;     
-                end else if(errors[4:0]>=1) begin 
-                    next_state=ERROR;
-                    active_out=0; 
+                if (init) begin
+                    next_state=INIT;
+                end else begin
+                    if(errors[4:0]==0)begin 
+                        next_state=ACTIVE;
+                        active_out=1;     
+                    end else if(errors[4:0]>=1) begin 
+                        next_state=ERROR;
+                        active_out=0; 
+                    end
                 end
-
             end   
         end 
 

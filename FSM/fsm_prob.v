@@ -34,11 +34,16 @@ module fsm_prob(output reg clk,
         Do_high<='h9;
         D1_high<='hA;
         @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        empties<=1;
+        @(posedge clk);
         init<=1;
 
         @(posedge clk);
         @(posedge clk);
-        empties <= 1;
+        init<=0;
+        empties <= 2;
         @(posedge clk);
         {main_fifo_low, main_fifo_high, Vco_low, Vco_high, Vc1_low, Vc1_high, Do_low, Do_high, D1_low, D1_high} <=0;
         @(posedge clk);
