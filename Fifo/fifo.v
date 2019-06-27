@@ -22,7 +22,6 @@ module fifo(input clk,
     reg rd;  
     //wires.
     wire [5:0] data2write;
-  
     wire valid_mem;
     wire err_mem;
     //mem de tamaño deseado para cada fifo.
@@ -75,8 +74,12 @@ module fifo(input clk,
         if (counter > 0) fifo_empty = 0;
         if (counter >= FIFO_SIZE) fifo_full = 1;
         if(fifo_wr) begin
-            if(fifo_full) err_fifo = 1;
-            wr = 1;
+            if(fifo_full) begin 
+            err_fifo = 1;
+            wr = 0;
+            end else begin
+                wr = 1;
+            end
         end
         if(fifo_rd) begin
             if(fifo_empty) err_fifo = 1;
