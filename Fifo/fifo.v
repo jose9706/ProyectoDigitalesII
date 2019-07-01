@@ -1,12 +1,12 @@
-`include "mem.v"
+`include "../Mem/mem.v"
 
 module fifo(input clk,
             input RESET_L,
             input [5:0] data_in,
             input fifo_rd,
             input fifo_wr,
-            input al_empty_in, 
-            input al_full_in,
+            input [FIFO_SIZE-1:0] al_empty_in, 
+            input [FIFO_SIZE-1:0] al_full_in,
             output reg fifo_empty,
             output reg fifo_full,
             output wire [5:0] data_out,
