@@ -1,13 +1,13 @@
-`include "../Mem/mem.v"
+`include "mem.v"
 
 module fifo(input clk,
             input RESET_L,
             input [5:0] data_in,
             input fifo_rd,
             input fifo_wr,
-            input [FIFO_SIZE-1:0] al_empty_in, 
-            input [FIFO_SIZE-1:0] al_full_in,
-            output reg fifo_empty,
+            input [4:0] al_empty_in,
+            input [4:0] al_full_in,
+            output reg  fifo_empty,
             output reg fifo_full,
             output wire [5:0] data_out,
             output reg err_fifo,
@@ -110,11 +110,11 @@ module fifo(input clk,
             if(fifo_empty) err_fifo = 1;
             rd =1;
         end
-        if(counter>=al_full_in) begin 
+        if(counter>=al_full_in[4:0]) begin 
             al_full=1; 
         end
 
-        if(counter<=al_empty_in)begin 
+        if(counter<=al_empty_in[4:0])begin 
             al_empty=1; 
         end
 
