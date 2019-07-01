@@ -4,16 +4,24 @@ module fifo_t(
                 output reg [5:0] data_in,
                 output reg fifo_rd,
                 output reg fifo_wr,
+                output reg al_full_in, 
+                output reg al_empty_in,
                 input fifo_empty,
                 input fifo_full,
                 input [5:0] data_out,
-                input err_full);
+                //input err_full,
+                input al_full,
+                input al_empty);
 
     initial begin
         $dumpfile("fifo.vcd");
         $dumpvars;
 
         {RESET_L, data_in, fifo_rd, fifo_wr}<=0;
+        
+        //Pruebas de los almos como entradas al 20%
+        al_empty_in<=2;
+        al_full_in<=6;
 
         @(posedge clk);
         RESET_L<=1;

@@ -5,6 +5,8 @@ module fifo(input clk,
             input [5:0] data_in,
             input fifo_rd,
             input fifo_wr,
+            input al_empty_in, 
+            input al_full_in,
             output reg fifo_empty,
             output reg fifo_full,
             output wire [5:0] data_out,
@@ -108,11 +110,11 @@ module fifo(input clk,
             if(fifo_empty) err_fifo = 1;
             rd =1;
         end
-        if(counter>=6) begin 
+        if(counter>=al_full_in) begin 
             al_full=1; 
         end
 
-        if(counter<=2)begin 
+        if(counter<=al_empty_in)begin 
             al_empty=1; 
         end
 
