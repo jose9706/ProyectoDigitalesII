@@ -11,8 +11,8 @@ module fifo(input clk,
             output reg fifo_full,
             output wire [5:0] data_out,
             output reg err_fifo,
-            output reg al_empty,
-            output reg al_full );
+            output reg pause,
+            output wire valid_out);
     
     //Params.
     parameter FIFO_SIZE = 8;
@@ -20,13 +20,13 @@ module fifo(input clk,
     //Regs.
     reg [PTR_ADRESS-1:0] wr_ptr;
     reg [PTR_ADRESS-1:0] rd_ptr;
-    reg [5:0] inner_data;
     reg [FIFO_SIZE-1:0] counter;
     reg wr;
     reg rd;  
+    reg pause_reg;
+    reg al_empty;
+    reg al_full;
     //wires.
-    wire [5:0] data2write;
-    wire valid_mem;
     wire err_mem;
     //mem de tamaño deseado para cada fifo.
     mem  #(.RAM_DEPTH(FIFO_SIZE))  lul (clk,
@@ -35,7 +35,7 @@ module fifo(input clk,
     data_in,
     wr,
     rd,
-    valid_mem,
+    valid_out,
     data_out,
     RESET_L,
     err_mem);
@@ -51,7 +51,9 @@ module fifo(input clk,
             wr_ptr  <= 0;
             counter <= 0;
             rd_ptr <= 0;
+            pause_reg <= 0;
             end else begin
+            pause_reg <= pause;
             if (fifo_wr) begin
                 if (fifo_empty) begin
                     wr_ptr  <= 0;
@@ -95,6 +97,7 @@ module fifo(input clk,
         al_full=0;     
         wr = 0;
         rd = 0;
+        pause = pause_reg;
         err_fifo = 0;
         if (counter > 0) fifo_empty = 0;
         if (counter >= FIFO_SIZE) fifo_full = 1;
@@ -112,10 +115,12 @@ module fifo(input clk,
         end
         if(counter>=al_full_in) begin 
             al_full=1; 
+            pause = 1;
         end
 
         if(counter<=al_empty_in)begin 
-            al_empty=1; 
+            al_empty=1;
+            pause = 0; 
         end
 
     end
