@@ -9,9 +9,10 @@ module fifo_t(
                 input fifo_empty,
                 input fifo_full,
                 input [5:0] data_out,
-                //input err_full,
-                input al_empty, 
-                input al_full);
+            //    input al_empty, 
+            //    input al_full,
+                input pause, 
+                input valid_out);
 
     initial begin
         $dumpfile("fifo.vcd");

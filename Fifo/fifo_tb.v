@@ -10,9 +10,7 @@ module fifo_tb;
     /*AUTOWIRE*/
     // Beginning of automatic wires (for undeclared instantiated-module outputs)
     wire		RESET_L;		// From prob of fifo_t.v
-    wire		al_empty;		// From fifo of fifo.v, ...
     wire [4:0]		al_empty_in;		// From prob of fifo_t.v
-    wire		al_full;		// From fifo of fifo.v, ...
     wire [4:0]		al_full_in;		// From prob of fifo_t.v
     wire		clk;			// From prob of fifo_t.v
     wire [5:0]		data_in;		// From prob of fifo_t.v
@@ -22,6 +20,8 @@ module fifo_tb;
     wire		fifo_full;		// From fifo of fifo.v, ...
     wire		fifo_rd;		// From prob of fifo_t.v
     wire		fifo_wr;		// From prob of fifo_t.v
+    wire		pause;			// From fifo of fifo.v, ...
+    wire		valid_out;		// From fifo of fifo.v, ...
     // End of automatics
    
     fifo fifo(/*AUTOINST*/
@@ -30,8 +30,8 @@ module fifo_tb;
 	      .fifo_full		(fifo_full),
 	      .data_out			(data_out[5:0]),
 	      .err_fifo			(err_fifo),
-	      .al_empty			(al_empty),
-	      .al_full			(al_full),
+	      .pause			(pause),
+	      .valid_out		(valid_out),
 	      // Inputs
 	      .clk			(clk),
 	      .RESET_L			(RESET_L),
@@ -54,17 +54,17 @@ module fifo_tb;
 		.fifo_empty		(fifo_empty),
 		.fifo_full		(fifo_full),
 		.data_out		(data_out[5:0]),
-		.al_empty		(al_empty),
-		.al_full		(al_full));
+		.pause			(pause),
+		.valid_out		(valid_out));
 
     synth_fifo synth(/*AUTOINST*/
 		     // Outputs
-		     .al_empty		(al_empty),
-		     .al_full		(al_full),
 		     .data_out		(data_out[5:0]),
 		     .err_fifo		(err_fifo),
 		     .fifo_empty	(fifo_empty),
 		     .fifo_full		(fifo_full),
+		     .pause		(pause),
+		     .valid_out		(valid_out),
 		     // Inputs
 		     .RESET_L		(RESET_L),
 		     .al_empty_in	(al_empty_in[4:0]),
