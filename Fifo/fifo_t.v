@@ -79,6 +79,7 @@ module fifo_t(
         end
         @(posedge clk); //probando error
         fifo_wr<=1;
+        fifo_rd<=0;
         data_in<=6'b000000;
         @(posedge clk);
         data_in<=6'b000001;
