@@ -80,7 +80,7 @@ module tx(input clk,
         end
         else begin
         if(~MAIN_EMPTY & ~(VC0_PAUSE | VC1_PAUSE)) POP_MAIN <= 1;
-        else POP_MAIN<=0;
+        else POP_MAIN<= 0;
         if(~(D0_PAUSE | D1_PAUSE)) begin
             if(~(VC0_EMPTY & VC1_EMPTY)) begin
                 POP_VC0 <= 1;
