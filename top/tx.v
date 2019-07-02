@@ -76,19 +76,15 @@ module tx(input clk,
         fifo_errors[2] = VC1_ERR;
         fifo_errors[3] = D0_ERR;
         fifo_errors[4] = D1_ERR;
-    end
 
-    
-    //Demux segun VC_ID
-    always @(*) begin
         data_to_VC0 = 0;
         data_to_VC1 = 0;
         POP_MAIN = 0;
         PUSH_VC0 = 0;
         PUSH_VC1 = 0;
-        if(~(VC0_PAUSE | VC1_PAUSE) & ~MAIN_EMPTY) begin
+        /*if(~(VC0_PAUSE | VC1_PAUSE) & ~MAIN_EMPTY) begin
             POP_MAIN = 1;
-        end
+        end*/
         if(MAIN_VALID) begin
             if(DATA_OUT_MAIN[5] == 0) begin
                 data_to_VC0 = DATA_OUT_MAIN;
@@ -100,9 +96,16 @@ module tx(input clk,
             end
         end
     end
+
+    
+    //Demux segun VC_ID
+   /* always @(*) begin
+       
+        
+    end*/
     //LOGICA DE POP A VC0 Y VC1
 
-    always @(*) begin
+  /*  always @(*) begin
         POP_VC0 = 0;
         POP_VC1 = 0;
         if(~(D0_PAUSE | D1_PAUSE)) begin
@@ -117,10 +120,10 @@ module tx(input clk,
                 POP_VC1 = 1;
             end
         end
-    end
+    end*/
 
     //DEMUX Y MUX HACIA DEST.
-    always @(*) begin
+  /*  always @(*) begin
         data_from_VC0 = DATA_OUT_VC0;
         data_from_VC1 = DATA_OUT_VC1;
         PUSH_D0 = 0;
@@ -155,7 +158,7 @@ module tx(input clk,
                 PUSH_D1 = 1;
             end
         end
-    end
+    end*/
 
 
     //FSM.
@@ -205,8 +208,8 @@ module tx(input clk,
     fifo #(.FIFO_SIZE(16), .PTR_ADRESS(4)) VC0 (clk,
                                                 RESET_L,
                                                 data_to_VC0,
-                                                PUSH_VC0,
                                                 POP_VC0,
+                                                PUSH_VC0,
                                                 VC0_LOW,
                                                 VC0_HIGH,
                                                 VC0_EMPTY,
@@ -218,8 +221,8 @@ module tx(input clk,
     fifo #(.FIFO_SIZE(16), .PTR_ADRESS(4)) VC1 (clk,
                                                 RESET_L,
                                                 data_to_VC1,
-                                                PUSH_VC1,
                                                 POP_VC1,
+                                                PUSH_VC1,
                                                 VC1_LOW,
                                                 VC1_HIGH,
                                                 VC1_EMPTY,
@@ -231,8 +234,8 @@ module tx(input clk,
     fifo #(.FIFO_SIZE(4), .PTR_ADRESS(2)) D0 (clk,
                                               RESET_L,
                                               data_to_D0,
-                                              PUSH_D0,
                                               POP_D0,
+                                              PUSH_D0,
                                               D0_LOW,
                                               D0_HIGH,
                                               D0_EMPTY,
@@ -244,8 +247,8 @@ module tx(input clk,
     fifo #(.FIFO_SIZE(4), .PTR_ADRESS(2)) D1 (clk,
                                               RESET_L,
                                               data_to_D1,
-                                              PUSH_D1,
                                               POP_D1,
+                                              PUSH_D1,
                                               D1_LOW,
                                               D1_HIGH,
                                               D1_EMPTY,

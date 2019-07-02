@@ -31,19 +31,22 @@ module tx_t(
         main_fifo_low<='h1;
         main_fifo_high<='h3;
         
-        Vco_low<='hB;
-        Vco_high<='h8;
+        Vco_low<='h3;
+        Vco_high<='hC;
 
-        Vc1_low<='hA;
-        Vc1_high<='h7;
+        Vc1_low<='h3;
+        Vc1_high<='hC;
 
-        Do_low<='hC;
-        Do_high<='h9;
+        Do_low<='h1;
+        Do_high<='h3;
 
-        D1_low<='hD;
-        D1_high<='hA;
+        D1_low<='h1;
+        D1_high<='h3;
         @(posedge clk);
+        DATA_IN_TX <= 'b101010;
+        PUSH_MAIN <= 1;
         @(posedge clk);
+        PUSH_MAIN <= 0;
         @(posedge clk);
         @(posedge clk);
         $finish;

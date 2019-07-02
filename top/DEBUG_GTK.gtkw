@@ -1,0 +1,81 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue Jul  2 19:58:57 2019
+[*]
+[dumpfile] "/home/alberto/gir_repo/ProyectoDigitalesII/top/result_tx.vcd"
+[dumpfile_mtime] "Tue Jul  2 19:54:34 2019"
+[dumpfile_size] 12042
+[savefile] "/home/alberto/gir_repo/ProyectoDigitalesII/top/DEBUG_GTK.gtkw"
+[timestart] 0
+[size] 1853 1025
+[pos] -30 -30
+*-1.711064 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tx_tb.
+[treeopen] tx_tb.proyecto.
+[sst_width] 227
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 295
+@200
+-PROBADOR
+@28
+tx_tb.probador.clk
+tx_tb.probador.init
+tx_tb.probador.RESET_L
+@200
+-FSM
+@22
+tx_tb.proyecto.CONTROL_MACHINE.next_state[4:0]
+tx_tb.proyecto.CONTROL_MACHINE.state[4:0]
+@28
+tx_tb.proyecto.CONTROL_MACHINE.active_out
+@22
+tx_tb.proyecto.CONTROL_MACHINE.empties[4:0]
+tx_tb.proyecto.CONTROL_MACHINE.errors[4:0]
+@200
+-MAIN SIGNALS
+@22
+tx_tb.proyecto.MAIN_HIGH[4:0]
+tx_tb.proyecto.MAIN_LOW[4:0]
+@28
+tx_tb.proyecto.MAIN_EMPTY
+tx_tb.proyecto.MAIN_ERROR
+tx_tb.proyecto.MAIN_VALID
+tx_tb.proyecto.MAIN_PAUSE
+@22
+tx_tb.proyecto.DATA_OUT_MAIN[5:0]
+@28
+tx_tb.proyecto.POP_MAIN
+tx_tb.probador.PUSH_MAIN
+@200
+-VC0 SIGNALS
+@22
+tx_tb.proyecto.VC0_HIGH[4:0]
+tx_tb.proyecto.VC0_LOW[4:0]
+@28
+tx_tb.proyecto.VC0_EMPTY
+tx_tb.proyecto.VC0_ERR
+tx_tb.proyecto.VC0_VALID
+tx_tb.proyecto.VC0_PAUSE
+@22
+tx_tb.proyecto.DATA_OUT_VC0[5:0]
+@28
+tx_tb.proyecto.POP_VC0
+tx_tb.proyecto.PUSH_VC0
+@200
+-VC1 SIGNALS
+@22
+tx_tb.proyecto.VC1_HIGH[4:0]
+tx_tb.proyecto.VC1_LOW[4:0]
+@28
+tx_tb.proyecto.VC1_EMPTY
+tx_tb.proyecto.VC1_ERR
+tx_tb.proyecto.VC1_VALID
+tx_tb.proyecto.VC1_PAUSE
+@23
+tx_tb.proyecto.DATA_OUT_VC1[5:0]
+@28
+tx_tb.proyecto.POP_VC1
+tx_tb.proyecto.PUSH_VC1
+[pattern_trace] 1
+[pattern_trace] 0
