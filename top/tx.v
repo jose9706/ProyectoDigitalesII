@@ -3,9 +3,11 @@
 
 module tx(input clk,
           input RESET_L,
-          input [5:0] DATA_IN_TX,
-          input PUSH,
+          input PUSH_MAIN,
           input init,
+          input POP_D0,
+          input POP_D1,
+          input [5:0] DATA_IN_TX,
           input [4:0] main_fifo_low,
           input [4:0] main_fifo_high,
           input [4:0] Vco_low,
@@ -16,8 +18,8 @@ module tx(input clk,
           input [4:0] Do_high,
           input [4:0] D1_low,
           input [4:0] D1_high,
-          output reg PAUSE_MAIN
-     
+          output wire [5:0] DATA_OUT_D0,
+          output wire [5:0] DATA_OUT_D1
 );
     //REGS usados.
     reg [4:0] fifo_empties;
@@ -46,8 +48,6 @@ module tx(input clk,
     wire [5:0] DATA_OUT_MAIN;
     wire [5:0] DATA_OUT_VC0;
     wire [5:0] DATA_OUT_VC1;
-    wire [5:0] DATA_OUT_D0;
-    wire [5:0] DATA_OUT_D1;
     wire [4:0] MAIN_LOW;
     wire [4:0] MAIN_HIGH;
     wire [4:0] VC0_LOW;
@@ -194,7 +194,7 @@ module tx(input clk,
                                                   RESET_L,
                                                   DATA_IN_TX,
                                                   POP_MAIN,
-                                                  PUSH,
+                                                  PUSH_MAIN,
                                                   MAIN_LOW,
                                                   MAIN_HIGH,
                                                   MAIN_EMPTY,
