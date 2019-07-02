@@ -77,10 +77,25 @@ module fifo_t(
         fifo_wr<=0;
         @(posedge clk);
         fifo_rd<=1;
-        data_in<='b0;
-        repeat (9) begin
+        data_in<='b0; 
+        //Aqui iba el repeat antes
+        /*repeat (9) begin
         @(posedge clk);
-        end
+        end*/
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        fifo_rd<=1;
+        fifo_wr<=1;
+        data_in<='b1001011;
+        @(posedge clk);
+        data_in<='b1001111;
+        @(posedge clk);
+        data_in<='b1101111;
+        @(posedge clk);
+        data_in<='b1001100;
+        @(posedge clk);
+        data_in<='b1001110; //hasta aqui
         @(posedge clk); //probando error
         fifo_wr<=1;
         fifo_rd<=0;
@@ -124,6 +139,8 @@ module fifo_t(
         @(posedge clk);
         data_in<=6'b000111;
         @(posedge clk);
+        fifo_wr<=0;
+        fifo_rd<=1;
         data_in<=6'b001000;
         @(posedge clk);
         data_in<=6'b001001;
