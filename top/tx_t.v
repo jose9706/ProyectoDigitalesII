@@ -1,0 +1,56 @@
+
+module tx_t(
+    output reg clk,
+    output reg RESET_L,
+    output reg PUSH_MAIN,
+    output reg init,
+    output reg POP_D0,
+    output reg POP_D1,
+    output reg [5:0] DATA_IN_TX,
+    output reg [4:0] main_fifo_low,
+    output reg [4:0] main_fifo_high,
+    output reg [4:0] Vco_low,
+    output reg [4:0] Vco_high,
+    output reg [4:0] Vc1_low, 
+    output reg [4:0] Vc1_high,
+    output reg [4:0] Do_low,
+    output reg [4:0] Do_high,
+    output reg [4:0] D1_low,
+    output reg [4:0] D1_high
+);
+    initial begin
+        $dumpfile("result_tx.vcd");
+        $dumpvars;
+        {clk,RESET_L,PUSH_MAIN,init,POP_D0,POP_D1} <= 0;
+        {DATA_IN_TX} <= 0;
+        {main_fifo_high,main_fifo_low,Vco_high,Vco_low,Vc1_high,Vc1_low} <=0;
+        {D1_high,D1_low,Do_low,Do_high} <= 0;
+        @(posedge clk);
+        RESET_L <= 1;
+        @(posedge clk);
+        main_fifo_low<='h1;
+        main_fifo_high<='h3;
+        
+        Vco_low<='hB;
+        Vco_high<='h8;
+
+        Vc1_low<='hA;
+        Vc1_high<='h7;
+
+        Do_low<='hC;
+        Do_high<='h9;
+
+        D1_low<='hD;
+        D1_high<='hA;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        $finish;
+    end
+
+
+    initial clk   <= 0;
+    always #2 clk <= ~clk;
+
+endmodule // tx_t

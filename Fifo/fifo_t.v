@@ -4,16 +4,25 @@ module fifo_t(
                 output reg [5:0] data_in,
                 output reg fifo_rd,
                 output reg fifo_wr,
+                output reg [4:0] al_empty_in,
+                output reg [4:0] al_full_in, 
                 input fifo_empty,
                 input fifo_full,
                 input [5:0] data_out,
-                input err_full);
+            //    input al_empty, 
+            //    input al_full,
+                input pause, 
+                input valid_out);
 
     initial begin
         $dumpfile("fifo.vcd");
         $dumpvars;
 
         {RESET_L, data_in, fifo_rd, fifo_wr}<=0;
+
+        al_empty_in<=2;
+        al_full_in<=6; 
+
 
         @(posedge clk);
         RESET_L<=1;
@@ -70,6 +79,7 @@ module fifo_t(
         end
         @(posedge clk); //probando error
         fifo_wr<=1;
+        fifo_rd<=0;
         data_in<=6'b000000;
         @(posedge clk);
         data_in<=6'b000001;
@@ -92,8 +102,35 @@ module fifo_t(
         @(posedge clk);
         data_in<=6'b001010;
 
+        //Probar si se pasa de los write
         @(posedge clk);
+        fifo_wr<=1;
+        fifo_rd<=0;
+        data_in<=6'b001010;
+        @(posedge clk);
+        data_in<=6'b000010;
+        @(posedge clk);
+        data_in<=6'b000011;
+        @(posedge clk);
+        data_in<=6'b000100;
+        @(posedge clk);
+        data_in<=6'b000101;
+        @(posedge clk);
+        data_in<=6'b000110;
+        @(posedge clk);
+        data_in<=6'b000111;
+        @(posedge clk);
+        data_in<=6'b001000;
+        @(posedge clk);
+        data_in<=6'b001001;
+        @(posedge clk);
+        data_in<=6'b000100;
+        @(posedge clk);
+        data_in<=6'b000101;
+        @(posedge clk);
+        data_in<=6'b000110;
 
+        @(posedge clk);
         $finish;
     end
 
