@@ -61,9 +61,21 @@ module tx(input clk,
     wire FSM_ACTIVE_OUT;
     wire FSM_IDLE_OUT;
 
+    /*initial begin
+        POP_MAIN = 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        POP_MAIN = 1;
 
+    end*/
     //JUNTAR ERRORES DE TODOS LOS FIFOS PARA LA FSM
     //JUNTAR EMPTIES DE TODOS LOS FIFOS PARA FSM.
+    always @(posedge clk ) begin
+        if(~RESET_L) POP_MAIN <= 0;
+        if(~MAIN_EMPTY) POP_MAIN <= 1;
+    end
     always @(*) begin
         fifo_empties[0] = MAIN_EMPTY;
         fifo_empties[1] = VC0_EMPTY;
@@ -79,12 +91,12 @@ module tx(input clk,
 
         data_to_VC0 = 0;
         data_to_VC1 = 0;
-        POP_MAIN = 0;
+        //POP_MAIN = 0;
         PUSH_VC0 = 0;
         PUSH_VC1 = 0;
-        /*if(~(VC0_PAUSE | VC1_PAUSE) & ~MAIN_EMPTY) begin
-            POP_MAIN = 1;
-        end*/
+        //if( ~MAIN_EMPTY) begin
+        //    POP_MAIN <= 1;
+        //end
         if(MAIN_VALID) begin
             if(DATA_OUT_MAIN[5] == 0) begin
                 data_to_VC0 = DATA_OUT_MAIN;
@@ -105,7 +117,7 @@ module tx(input clk,
     end*/
     //LOGICA DE POP A VC0 Y VC1
 
-  /*  always @(*) begin
+    always @(*) begin
         POP_VC0 = 0;
         POP_VC1 = 0;
         if(~(D0_PAUSE | D1_PAUSE)) begin
@@ -120,10 +132,10 @@ module tx(input clk,
                 POP_VC1 = 1;
             end
         end
-    end*/
+    end
 
     //DEMUX Y MUX HACIA DEST.
-  /*  always @(*) begin
+    /*always @(*) begin
         data_from_VC0 = DATA_OUT_VC0;
         data_from_VC1 = DATA_OUT_VC1;
         PUSH_D0 = 0;

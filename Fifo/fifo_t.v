@@ -33,11 +33,15 @@ module fifo_t(
         fifo_wr<=0;
         fifo_rd<=1;
         @(posedge clk);
+        fifo_rd <= 0;
+        @(posedge clk);
+        @(posedge clk);
         fifo_wr<=1;
-        fifo_rd<=0;
+        fifo_rd<=1;
         data_in<=6'b100100;
         @(posedge clk);
         data_in<=6'b110110;
+        fifo_rd <= 1;
         @(posedge clk);
         data_in<=6'b010100;
         @(posedge clk);
