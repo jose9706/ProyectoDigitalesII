@@ -135,20 +135,21 @@ module fifo(input clk,
         if(fifo_wr & fifo_rd) begin
             wr = 1; 
             rd = 1; 
-        end
+        end else begin
 
-        if (fifo_wr) begin
-            if (fifo_full) begin
-                err_fifo = 1;
-                wr       = 0;
-                end else begin
-                wr = 1;
+            if (fifo_wr) begin
+                if (fifo_full) begin
+                    err_fifo = 1;
+                    wr       = 0;
+                    end else begin
+                    wr = 1;
+                end
             end
-        end
-        if (fifo_rd) begin
-            if (fifo_empty) err_fifo = 1;
-            else rd   = 1;
-            
+            if (fifo_rd) begin
+                if (fifo_empty) err_fifo = 1;
+                else rd   = 1;
+                
+            end
         end
 
     end

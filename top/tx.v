@@ -73,8 +73,34 @@ module tx(input clk,
     //JUNTAR ERRORES DE TODOS LOS FIFOS PARA LA FSM
     //JUNTAR EMPTIES DE TODOS LOS FIFOS PARA FSM.
     always @(posedge clk ) begin
-        if(~RESET_L) POP_MAIN <= 0;
-        if(~MAIN_EMPTY) POP_MAIN <= 1;
+        if(~RESET_L) begin
+            POP_MAIN <= 0;
+            POP_VC0 <= 0;    
+            POP_VC1 <= 0;
+        end
+        else begin
+        if(~MAIN_EMPTY & ~(VC0_PAUSE | VC1_PAUSE)) POP_MAIN <= 1;
+        else POP_MAIN<=0;
+        if(~(D0_PAUSE | D1_PAUSE)) begin
+            if(~(VC0_EMPTY & VC1_EMPTY)) begin
+                POP_VC0 <= 1;
+                POP_VC1 <= 1;           
+            end else begin
+                POP_VC0 <= 0;
+                POP_VC1 <= 0;
+            end
+            if(~VC0_EMPTY) begin
+                POP_VC0 <= 1;
+            end else begin
+                POP_VC0 <= 0;
+            end
+            if(~VC1_EMPTY) begin
+                POP_VC1 <= 1;
+            end else begin
+                POP_VC1 <= 0;
+            end
+       end        
+        end
     end
     always @(*) begin
         fifo_empties[0] = MAIN_EMPTY;
@@ -94,8 +120,8 @@ module tx(input clk,
         //POP_MAIN = 0;
         PUSH_VC0 = 0;
         PUSH_VC1 = 0;
-        //if( ~MAIN_EMPTY) begin
-        //    POP_MAIN <= 1;
+         //if( ~MAIN_EMPTY) begin
+           // POP_MAIN = 1;
         //end
         if(MAIN_VALID) begin
             if(DATA_OUT_MAIN[5] == 0) begin
@@ -107,39 +133,20 @@ module tx(input clk,
                 PUSH_VC1 = 1;
             end
         end
+        
     end
 
     
-    //Demux segun VC_ID
-   /* always @(*) begin
-       
-        
-    end*/
-    //LOGICA DE POP A VC0 Y VC1
-
-    always @(*) begin
-        POP_VC0 = 0;
-        POP_VC1 = 0;
-        if(~(D0_PAUSE | D1_PAUSE)) begin
-            if(~(VC0_EMPTY & VC1_EMPTY)) begin
-                POP_VC0 = 1;
-                POP_VC1 = 1;           
-            end
-            if(~VC0_EMPTY) begin
-                POP_VC0 = 1;
-            end
-            if(~VC1_EMPTY) begin
-                POP_VC1 = 1;
-            end
-        end
-    end
+  
 
     //DEMUX Y MUX HACIA DEST.
-    /*always @(*) begin
+    always @(*) begin
         data_from_VC0 = DATA_OUT_VC0;
         data_from_VC1 = DATA_OUT_VC1;
         PUSH_D0 = 0;
         PUSH_D1 = 0;
+        data_to_D0 = 0;
+        data_to_D1 = 0;
         if(VC0_VALID & VC1_VALID) begin
             if(data_from_VC0[4] == 0) begin
                 data_to_D0 = data_from_VC0;
@@ -170,7 +177,7 @@ module tx(input clk,
                 PUSH_D1 = 1;
             end
         end
-    end*/
+    end
 
 
     //FSM.

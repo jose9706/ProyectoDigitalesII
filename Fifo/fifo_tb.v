@@ -57,9 +57,9 @@ module fifo_tb;
 		.pause			(pause),
 		.valid_out		(valid_out));
 
-    synth_fifo synth(/*AUTOINST*/
+    //synth_fifo synth(/*AUTOINST*/
 		     // Outputs
-		     .data_out		(data_out[5:0]),
+	/*	     .data_out		(data_out[5:0]),
 		     .err_fifo		(err_fifo),
 		     .fifo_empty	(fifo_empty),
 		     .fifo_full		(fifo_full),
@@ -72,6 +72,6 @@ module fifo_tb;
 		     .clk		(clk),
 		     .data_in		(data_in[5:0]),
 		     .fifo_rd		(fifo_rd),
-		     .fifo_wr		(fifo_wr)); 
+		     .fifo_wr		(fifo_wr)); */
     
 endmodule 

@@ -52,7 +52,9 @@ module tx_t(
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
+        POP_D0<= 1;
         @(posedge clk);
+        POP_D0 <= 0;
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
