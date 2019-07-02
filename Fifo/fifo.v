@@ -88,9 +88,22 @@ module fifo(input clk,
                 end
             end
             if(fifo_rd && fifo_wr) begin
-                wr_ptr <= wr_ptr;
-                counter <= counter; 
-                rd_ptr <= rd_ptr;
+                if(wr_ptr == FIFO_SIZE-1) begin
+                    wr_ptr <= 0;
+                    counter <= counter;
+                    rd_ptr <= rd_ptr+1;
+                end else begin
+                    if(rd_ptr == FIFO_SIZE -1) begin
+                        rd_ptr <= 0;
+                        wr_ptr<=wr_ptr+1;
+                        counter <= counter;
+                    end else begin
+                        wr_ptr <= wr_ptr+1;
+                        counter <= counter; 
+                        rd_ptr <= rd_ptr+1;
+                    end
+                end
+                
             end
         end
     end
