@@ -88,9 +88,9 @@ module fifo(input clk,
                 end
             end
             if(fifo_rd && fifo_wr) begin
-                wr_ptr <= wr_ptr+1;
+                wr_ptr <= wr_ptr;
                 counter <= counter; 
-                rd_ptr <= rd_ptr+1;
+                rd_ptr <= rd_ptr;
             end
         end
     end
