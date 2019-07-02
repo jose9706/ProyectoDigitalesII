@@ -108,7 +108,7 @@ always @(*) begin
                 if(init)
                 next_state=INIT; 
                 else begin
-                if(empties==0) begin //si todos empties 
+                if(empties=='h1F) begin //si todos empties 
                     idle_out=1;  //esta esperando 
                     next_state=IDLE; 
                 end else begin //nada más espera si no

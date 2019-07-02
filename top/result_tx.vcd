@@ -1,0 +1,662 @@
+$date
+	Tue Jul  2 11:47:14 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tx_tb $end
+$var wire 5 ! main_fifo_low [4:0] $end
+$var wire 5 " main_fifo_high [4:0] $end
+$var wire 1 # init $end
+$var wire 1 $ clk $end
+$var wire 5 % Vco_low [4:0] $end
+$var wire 5 & Vco_high [4:0] $end
+$var wire 5 ' Vc1_low [4:0] $end
+$var wire 5 ( Vc1_high [4:0] $end
+$var wire 1 ) RESET_L $end
+$var wire 1 * PUSH_MAIN $end
+$var wire 1 + POP_D1 $end
+$var wire 1 , POP_D0 $end
+$var wire 5 - Do_low [4:0] $end
+$var wire 5 . Do_high [4:0] $end
+$var wire 6 / DATA_OUT_D1 [5:0] $end
+$var wire 6 0 DATA_OUT_D0 [5:0] $end
+$var wire 6 1 DATA_IN_TX [5:0] $end
+$var wire 5 2 D1_low [4:0] $end
+$var wire 5 3 D1_high [4:0] $end
+$scope module probador $end
+$var reg 5 4 D1_high [4:0] $end
+$var reg 5 5 D1_low [4:0] $end
+$var reg 6 6 DATA_IN_TX [5:0] $end
+$var reg 5 7 Do_high [4:0] $end
+$var reg 5 8 Do_low [4:0] $end
+$var reg 1 , POP_D0 $end
+$var reg 1 + POP_D1 $end
+$var reg 1 * PUSH_MAIN $end
+$var reg 1 ) RESET_L $end
+$var reg 5 9 Vc1_high [4:0] $end
+$var reg 5 : Vc1_low [4:0] $end
+$var reg 5 ; Vco_high [4:0] $end
+$var reg 5 < Vco_low [4:0] $end
+$var reg 1 $ clk $end
+$var reg 1 # init $end
+$var reg 5 = main_fifo_high [4:0] $end
+$var reg 5 > main_fifo_low [4:0] $end
+$upscope $end
+$scope module proyecto $end
+$var wire 5 ? D1_high [4:0] $end
+$var wire 5 @ D1_low [4:0] $end
+$var wire 6 A DATA_IN_TX [5:0] $end
+$var wire 5 B Do_high [4:0] $end
+$var wire 5 C Do_low [4:0] $end
+$var wire 1 , POP_D0 $end
+$var wire 1 + POP_D1 $end
+$var wire 1 * PUSH_MAIN $end
+$var wire 1 ) RESET_L $end
+$var wire 5 D Vc1_high [4:0] $end
+$var wire 5 E Vc1_low [4:0] $end
+$var wire 5 F Vco_high [4:0] $end
+$var wire 5 G Vco_low [4:0] $end
+$var wire 1 $ clk $end
+$var wire 1 # init $end
+$var wire 5 H main_fifo_high [4:0] $end
+$var wire 5 I main_fifo_low [4:0] $end
+$var wire 1 J VC1_VALID $end
+$var wire 1 K VC1_PAUSE $end
+$var wire 5 L VC1_LOW [4:0] $end
+$var wire 5 M VC1_HIGH [4:0] $end
+$var wire 1 N VC1_FULL $end
+$var wire 1 O VC1_ERR $end
+$var wire 1 P VC1_EMPTY $end
+$var wire 1 Q VC0_VALID $end
+$var wire 1 R VC0_PAUSE $end
+$var wire 5 S VC0_LOW [4:0] $end
+$var wire 5 T VC0_HIGH [4:0] $end
+$var wire 1 U VC0_FULL $end
+$var wire 1 V VC0_ERR $end
+$var wire 1 W VC0_EMPTY $end
+$var wire 1 X MAIN_VALID $end
+$var wire 1 Y MAIN_PAUSE $end
+$var wire 5 Z MAIN_LOW [4:0] $end
+$var wire 5 [ MAIN_HIGH [4:0] $end
+$var wire 1 \ MAIN_FULL $end
+$var wire 1 ] MAIN_ERROR $end
+$var wire 1 ^ MAIN_EMPTY $end
+$var wire 1 _ FSM_IDLE_OUT $end
+$var wire 1 ` FSM_ERROR_OUT $end
+$var wire 1 a FSM_ACTIVE_OUT $end
+$var wire 6 b DATA_OUT_VC1 [5:0] $end
+$var wire 6 c DATA_OUT_VC0 [5:0] $end
+$var wire 6 d DATA_OUT_MAIN [5:0] $end
+$var wire 6 e DATA_OUT_D1 [5:0] $end
+$var wire 6 f DATA_OUT_D0 [5:0] $end
+$var wire 1 g D1_VALID $end
+$var wire 1 h D1_PAUSE $end
+$var wire 5 i D1_LOW [4:0] $end
+$var wire 5 j D1_HIGH [4:0] $end
+$var wire 1 k D1_FULL $end
+$var wire 1 l D1_ERR $end
+$var wire 1 m D1_EMPTY $end
+$var wire 1 n D0_VALID $end
+$var wire 1 o D0_PAUSE $end
+$var wire 5 p D0_LOW [4:0] $end
+$var wire 5 q D0_HIGH [4:0] $end
+$var wire 1 r D0_FULL $end
+$var wire 1 s D0_ERR $end
+$var wire 1 t D0_EMPTY $end
+$var reg 1 u POP_MAIN $end
+$var reg 1 v POP_VC0 $end
+$var reg 1 w POP_VC1 $end
+$var reg 1 x PUSH_D0 $end
+$var reg 1 y PUSH_D1 $end
+$var reg 1 z PUSH_VC0 $end
+$var reg 1 { PUSH_VC1 $end
+$var reg 6 | data_from_VC0 [5:0] $end
+$var reg 6 } data_from_VC1 [5:0] $end
+$var reg 6 ~ data_to_D0 [5:0] $end
+$var reg 6 !" data_to_D1 [5:0] $end
+$var reg 6 "" data_to_VC0 [5:0] $end
+$var reg 6 #" data_to_VC1 [5:0] $end
+$var reg 5 $" fifo_empties [4:0] $end
+$var reg 5 %" fifo_errors [4:0] $end
+$scope module CONTROL_MACHINE $end
+$var wire 5 &" D1_high [4:0] $end
+$var wire 5 '" D1_low [4:0] $end
+$var wire 5 (" Do_high [4:0] $end
+$var wire 5 )" Do_low [4:0] $end
+$var wire 5 *" Vc1_high [4:0] $end
+$var wire 5 +" Vc1_low [4:0] $end
+$var wire 5 ," Vco_high [4:0] $end
+$var wire 5 -" Vco_low [4:0] $end
+$var wire 1 $ clk $end
+$var wire 5 ." empties [4:0] $end
+$var wire 5 /" errors [4:0] $end
+$var wire 1 # init $end
+$var wire 5 0" main_fifo_high [4:0] $end
+$var wire 5 1" main_fifo_low [4:0] $end
+$var wire 1 ) reset $end
+$var reg 1 a active_out $end
+$var reg 5 2" d1_h [4:0] $end
+$var reg 5 3" d1_l [4:0] $end
+$var reg 5 4" do_h [4:0] $end
+$var reg 5 5" do_l [4:0] $end
+$var reg 1 ` error_out $end
+$var reg 1 _ idle_out $end
+$var reg 1 6" lol $end
+$var reg 5 7" mf_h [4:0] $end
+$var reg 5 8" mf_l [4:0] $end
+$var reg 5 9" next_state [4:0] $end
+$var reg 5 :" state [4:0] $end
+$var reg 5 ;" vc1_h [4:0] $end
+$var reg 5 <" vc1_l [4:0] $end
+$var reg 5 =" vco_h [4:0] $end
+$var reg 5 >" vco_l [4:0] $end
+$upscope $end
+$scope module D0 $end
+$var wire 1 ) RESET_L $end
+$var wire 5 ?" al_empty_in [4:0] $end
+$var wire 5 @" al_full_in [4:0] $end
+$var wire 1 $ clk $end
+$var wire 6 A" data_in [5:0] $end
+$var wire 1 x fifo_rd $end
+$var wire 1 , fifo_wr $end
+$var wire 1 n valid_out $end
+$var wire 1 B" err_mem $end
+$var wire 6 C" data_out [5:0] $end
+$var reg 1 D" al_empty $end
+$var reg 1 E" al_full $end
+$var reg 4 F" counter [3:0] $end
+$var reg 1 s err_fifo $end
+$var reg 1 t fifo_empty $end
+$var reg 1 r fifo_full $end
+$var reg 1 o pause $end
+$var reg 1 G" pause_reg $end
+$var reg 1 H" rd $end
+$var reg 2 I" rd_ptr [1:0] $end
+$var reg 1 J" wr $end
+$var reg 2 K" wr_ptr [1:0] $end
+$scope module SPACE $end
+$var wire 1 ) RESET_L $end
+$var wire 2 L" address_read [1:0] $end
+$var wire 2 M" address_write [1:0] $end
+$var wire 1 $ clk $end
+$var wire 6 N" data [5:0] $end
+$var wire 1 H" read $end
+$var wire 1 J" write $end
+$var reg 6 O" data_out [5:0] $end
+$var reg 1 B" err $end
+$var reg 1 n valid_out $end
+$var integer 32 P" i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module D1 $end
+$var wire 1 ) RESET_L $end
+$var wire 5 Q" al_empty_in [4:0] $end
+$var wire 5 R" al_full_in [4:0] $end
+$var wire 1 $ clk $end
+$var wire 6 S" data_in [5:0] $end
+$var wire 1 y fifo_rd $end
+$var wire 1 + fifo_wr $end
+$var wire 1 g valid_out $end
+$var wire 1 T" err_mem $end
+$var wire 6 U" data_out [5:0] $end
+$var reg 1 V" al_empty $end
+$var reg 1 W" al_full $end
+$var reg 4 X" counter [3:0] $end
+$var reg 1 l err_fifo $end
+$var reg 1 m fifo_empty $end
+$var reg 1 k fifo_full $end
+$var reg 1 h pause $end
+$var reg 1 Y" pause_reg $end
+$var reg 1 Z" rd $end
+$var reg 2 [" rd_ptr [1:0] $end
+$var reg 1 \" wr $end
+$var reg 2 ]" wr_ptr [1:0] $end
+$scope module SPACE $end
+$var wire 1 ) RESET_L $end
+$var wire 2 ^" address_read [1:0] $end
+$var wire 2 _" address_write [1:0] $end
+$var wire 1 $ clk $end
+$var wire 6 `" data [5:0] $end
+$var wire 1 Z" read $end
+$var wire 1 \" write $end
+$var reg 6 a" data_out [5:0] $end
+$var reg 1 T" err $end
+$var reg 1 g valid_out $end
+$var integer 32 b" i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module MAIN $end
+$var wire 1 ) RESET_L $end
+$var wire 5 c" al_empty_in [4:0] $end
+$var wire 5 d" al_full_in [4:0] $end
+$var wire 1 $ clk $end
+$var wire 6 e" data_in [5:0] $end
+$var wire 1 u fifo_rd $end
+$var wire 1 * fifo_wr $end
+$var wire 1 X valid_out $end
+$var wire 1 f" err_mem $end
+$var wire 6 g" data_out [5:0] $end
+$var reg 1 h" al_empty $end
+$var reg 1 i" al_full $end
+$var reg 4 j" counter [3:0] $end
+$var reg 1 ] err_fifo $end
+$var reg 1 ^ fifo_empty $end
+$var reg 1 \ fifo_full $end
+$var reg 1 Y pause $end
+$var reg 1 k" pause_reg $end
+$var reg 1 l" rd $end
+$var reg 2 m" rd_ptr [1:0] $end
+$var reg 1 n" wr $end
+$var reg 2 o" wr_ptr [1:0] $end
+$scope module SPACE $end
+$var wire 1 ) RESET_L $end
+$var wire 2 p" address_read [1:0] $end
+$var wire 2 q" address_write [1:0] $end
+$var wire 1 $ clk $end
+$var wire 6 r" data [5:0] $end
+$var wire 1 l" read $end
+$var wire 1 n" write $end
+$var reg 6 s" data_out [5:0] $end
+$var reg 1 f" err $end
+$var reg 1 X valid_out $end
+$var integer 32 t" i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module VC0 $end
+$var wire 1 ) RESET_L $end
+$var wire 5 u" al_empty_in [4:0] $end
+$var wire 5 v" al_full_in [4:0] $end
+$var wire 1 $ clk $end
+$var wire 6 w" data_in [5:0] $end
+$var wire 1 z fifo_rd $end
+$var wire 1 v fifo_wr $end
+$var wire 1 Q valid_out $end
+$var wire 1 x" err_mem $end
+$var wire 6 y" data_out [5:0] $end
+$var reg 1 z" al_empty $end
+$var reg 1 {" al_full $end
+$var reg 16 |" counter [15:0] $end
+$var reg 1 V err_fifo $end
+$var reg 1 W fifo_empty $end
+$var reg 1 U fifo_full $end
+$var reg 1 R pause $end
+$var reg 1 }" pause_reg $end
+$var reg 1 ~" rd $end
+$var reg 4 !# rd_ptr [3:0] $end
+$var reg 1 "# wr $end
+$var reg 4 ## wr_ptr [3:0] $end
+$scope module SPACE $end
+$var wire 1 ) RESET_L $end
+$var wire 4 $# address_read [3:0] $end
+$var wire 4 %# address_write [3:0] $end
+$var wire 1 $ clk $end
+$var wire 6 &# data [5:0] $end
+$var wire 1 ~" read $end
+$var wire 1 "# write $end
+$var reg 6 '# data_out [5:0] $end
+$var reg 1 x" err $end
+$var reg 1 Q valid_out $end
+$var integer 32 (# i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module VC1 $end
+$var wire 1 ) RESET_L $end
+$var wire 5 )# al_empty_in [4:0] $end
+$var wire 5 *# al_full_in [4:0] $end
+$var wire 1 $ clk $end
+$var wire 6 +# data_in [5:0] $end
+$var wire 1 { fifo_rd $end
+$var wire 1 w fifo_wr $end
+$var wire 1 J valid_out $end
+$var wire 1 ,# err_mem $end
+$var wire 6 -# data_out [5:0] $end
+$var reg 1 .# al_empty $end
+$var reg 1 /# al_full $end
+$var reg 16 0# counter [15:0] $end
+$var reg 1 O err_fifo $end
+$var reg 1 P fifo_empty $end
+$var reg 1 N fifo_full $end
+$var reg 1 K pause $end
+$var reg 1 1# pause_reg $end
+$var reg 1 2# rd $end
+$var reg 4 3# rd_ptr [3:0] $end
+$var reg 1 4# wr $end
+$var reg 4 5# wr_ptr [3:0] $end
+$scope module SPACE $end
+$var wire 1 ) RESET_L $end
+$var wire 4 6# address_read [3:0] $end
+$var wire 4 7# address_write [3:0] $end
+$var wire 1 $ clk $end
+$var wire 6 8# data [5:0] $end
+$var wire 1 2# read $end
+$var wire 1 4# write $end
+$var reg 6 9# data_out [5:0] $end
+$var reg 1 ,# err $end
+$var reg 1 J valid_out $end
+$var integer 32 :# i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b10000 :#
+b0 9#
+b0 8#
+bx 7#
+bx 6#
+bx 5#
+04#
+bx 3#
+02#
+x1#
+bx 0#
+0/#
+0.#
+b0 -#
+0,#
+b0 +#
+bx *#
+bx )#
+b10000 (#
+b0 '#
+b0 &#
+bx %#
+bx $#
+bx ##
+0"#
+bx !#
+0~"
+x}"
+bx |"
+0{"
+0z"
+b0 y"
+0x"
+b0 w"
+bx v"
+bx u"
+b100 t"
+b0 s"
+b0 r"
+bx q"
+bx p"
+bx o"
+0n"
+bx m"
+0l"
+xk"
+bx j"
+0i"
+0h"
+b0 g"
+0f"
+b0 e"
+bx d"
+bx c"
+b100 b"
+b0 a"
+bx `"
+bx _"
+bx ^"
+bx ]"
+0\"
+bx ["
+0Z"
+xY"
+bx X"
+0W"
+0V"
+b0 U"
+0T"
+bx S"
+bx R"
+bx Q"
+b100 P"
+b0 O"
+bx N"
+bx M"
+bx L"
+bx K"
+0J"
+bx I"
+0H"
+xG"
+bx F"
+0E"
+0D"
+b0 C"
+0B"
+bx A"
+bx @"
+bx ?"
+bx >"
+bx ="
+bx <"
+bx ;"
+bx :"
+b1 9"
+bx 8"
+bx 7"
+x6"
+bx 5"
+bx 4"
+bx 3"
+bx 2"
+b0 1"
+b0 0"
+b0 /"
+b11111 ."
+b0 -"
+b0 ,"
+b0 +"
+b0 *"
+b0 )"
+b0 ("
+b0 '"
+b0 &"
+b0 %"
+b11111 $"
+b0 #"
+b0 ""
+bx !"
+bx ~
+b0 }
+b0 |
+0{
+0z
+0y
+0x
+0w
+0v
+0u
+1t
+0s
+0r
+bx q
+bx p
+xo
+0n
+1m
+0l
+0k
+bx j
+bx i
+xh
+0g
+b0 f
+b0 e
+b0 d
+b0 c
+b0 b
+0a
+0`
+0_
+1^
+0]
+0\
+bx [
+bx Z
+xY
+0X
+1W
+0V
+0U
+bx T
+bx S
+xR
+0Q
+1P
+0O
+0N
+bx M
+bx L
+xK
+0J
+b0 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+b0 ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+b0 .
+b0 -
+0,
+0+
+0*
+0)
+b0 (
+b0 '
+b0 &
+b0 %
+0$
+0#
+b0 "
+b0 !
+$end
+#2
+0Y
+0R
+0K
+0o
+0h
+b10 9"
+06"
+b1 :"
+0k"
+b0 m"
+b0 p"
+b0 j"
+b0 o"
+b0 q"
+0}"
+b0 !#
+b0 $#
+b0 |"
+b0 ##
+b0 %#
+01#
+b0 3#
+b0 6#
+b0 0#
+b0 5#
+b0 7#
+0G"
+b0 I"
+b0 L"
+b0 F"
+b0 K"
+b0 M"
+0Y"
+b0 ["
+b0 ^"
+b0 X"
+b0 ]"
+b0 _"
+1)
+b100 b"
+b100 P"
+b10000 :#
+b10000 (#
+b100 t"
+1$
+#4
+0$
+#6
+b100 9"
+b0 Z
+b0 8"
+b0 c"
+b0 [
+b0 7"
+b0 d"
+b0 S
+b0 >"
+b0 u"
+b0 T
+b0 ="
+b0 v"
+b0 L
+b0 <"
+b0 )#
+b0 M
+b0 ;"
+b0 *#
+b0 p
+b0 5"
+b0 ?"
+b0 q
+b0 4"
+b0 @"
+b0 i
+b0 3"
+b0 Q"
+b0 j
+b0 2"
+b0 R"
+b10 :"
+1$
+#8
+0$
+#10
+1_
+b100 :"
+1$
+#12
+0$
+#14
+1$
+#16
+0$
+#18
+1$
+#20
+0$
+#22
+1$

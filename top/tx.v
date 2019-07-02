@@ -34,12 +34,11 @@ module tx(input clk,
     reg [5:0] data_from_VC0;
     reg [5:0] data_from_VC1;
     reg PUSH_D0;
-    reg POP_D0;
     reg PUSH_D1;
-    reg POP_D1;
     reg [5:0] data_to_D1;
     reg [5:0] data_to_D0;
     //wires de interconexion.
+   /*AUTOWIRE*/
     wire MAIN_EMPTY;
     wire MAIN_FULL;
     wire MAIN_ERROR;
