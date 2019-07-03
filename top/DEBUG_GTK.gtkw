@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Wed Jul  3 01:17:50 2019
+[*] Wed Jul  3 21:59:01 2019
 [*]
 [dumpfile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/ProyectoDigitalesII/top/result_tx.vcd"
-[dumpfile_mtime] "Wed Jul  3 01:17:34 2019"
-[dumpfile_size] 13485
+[dumpfile_mtime] "Wed Jul  3 21:48:52 2019"
+[dumpfile_size] 21677
 [savefile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/ProyectoDigitalesII/top/DEBUG_GTK.gtkw"
-[timestart] 42
+[timestart] 302
 [size] 1299 713
 [pos] -1 -1
-*-3.253591 73 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-3.253591 335 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tx_tb.
 [treeopen] tx_tb.proyecto.
 [treeopen] tx_tb.proyecto.MAIN.
@@ -40,10 +40,9 @@ tx_tb.proyecto.CONTROL_MACHINE.empties[4:0]
 tx_tb.proyecto.CONTROL_MACHINE.errors[4:0]
 @200
 -MAIN SIGNALS
-@28
+@22
 [color] 6
 tx_tb.proyecto.DATA_IN_TX[5:0]
-@22
 [color] 6
 tx_tb.proyecto.MAIN_HIGH[4:0]
 [color] 6
@@ -67,9 +66,10 @@ tx_tb.proyecto.POP_MAIN
 tx_tb.probador.PUSH_MAIN
 @200
 -VC0 SIGNALS
-@22
+@23
 [color] 2
 tx_tb.proyecto.data_to_VC0[5:0]
+@22
 [color] 2
 tx_tb.proyecto.VC0_HIGH[4:0]
 [color] 2
@@ -93,10 +93,9 @@ tx_tb.proyecto.POP_VC0
 tx_tb.proyecto.PUSH_VC0
 @200
 -VC1 SIGNALS
-@23
+@22
 [color] 2
 tx_tb.proyecto.data_to_VC1[5:0]
-@22
 [color] 2
 tx_tb.proyecto.VC1_HIGH[4:0]
 [color] 2

@@ -19,11 +19,7 @@ module tx_t(
     output reg [4:0] D1_low,
     output reg [4:0] D1_high
 );
-    always @(posedge clk) begin
-        if(!MAIN_PAUSE)
-            PUSH_MAIN<=1;
-    end
-
+    
     initial begin
         $dumpfile("result_tx.vcd");
         $dumpvars;
@@ -84,6 +80,10 @@ module tx_t(
         @(posedge clk);
         PUSH_MAIN <= 0;
         @(posedge clk);
+
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
         @(posedge clk);
         DATA_IN_TX <= 'b011110;
         PUSH_MAIN <= 1;
@@ -116,6 +116,9 @@ module tx_t(
         @(posedge clk);
         PUSH_MAIN <= 0;
         @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
         @(posedge clk);
         @(posedge clk);
         DATA_IN_TX <= 'b011111;
@@ -155,17 +158,47 @@ module tx_t(
         @(posedge clk);
         DATA_IN_TX <= 'b110111;
         @(posedge clk);
+        POP_D1<= 1;
+        @(posedge clk);
+        POP_D1 <= 0;
         @(posedge clk);
         PUSH_MAIN <= 1;
         @(posedge clk);
+        //PUSH_MAIN <= 0;  //es con este mae el detalle 
         @(posedge clk);
         @(posedge clk);
         @(posedge clk); //TERMINA SEGUNDO TEST 
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
         @(posedge clk);
         @(posedge clk);
+        POP_D1<= 1;
+        @(posedge clk);
+        POP_D1 <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b000011;
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
+        @(posedge clk);
+        @(posedge clk);
+
+
 
 
 
