@@ -79,40 +79,12 @@ module tx_t(
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
-        DATA_IN_TX <= 'b011000; //18 voy a colocar al principio
+        DATA_IN_TX <= 'b101111; //2F voy a colocar al principio
         PUSH_MAIN <= 1;
         @(posedge clk);
         PUSH_MAIN <= 0;
         @(posedge clk);
         @(posedge clk);
-        @(posedge clk);
-        DATA_IN_TX <= 'b101111; //2F
-        PUSH_MAIN <= 1;
-        @(posedge clk);
-        PUSH_MAIN <= 0;
-        @(posedge clk);
-        @(posedge clk);
-        DATA_IN_TX <= 'b011001; // 19
-        @(posedge clk);
-        PUSH_MAIN <= 1;
-        @(posedge clk);
-        PUSH_MAIN <= 0;
-        @(posedge clk);
-        POP_D0<= 1;
-        @(posedge clk);
-        POP_D0 <= 0;
-        @(posedge clk);
-        POP_D0<= 1;
-        @(posedge clk);
-        POP_D0 <= 0;
-        @(posedge clk);
-        POP_D0<= 1;
-        @(posedge clk);
-        POP_D0 <= 0;
-        @(posedge clk);
-        POP_D1<= 1;
-        @(posedge clk);
-        POP_D1 <= 0;
         @(posedge clk);
         POP_D1<= 1;
         @(posedge clk);
@@ -161,14 +133,14 @@ module tx_t(
         POP_D1<= 1;
         @(posedge clk);
         POP_D1 <= 0;
-        @(posedge clk); 
+        @(posedge clk); ///
         @(posedge clk);
         @(posedge clk);
         DATA_IN_TX <= 'b011000;
+        @(posedge clk);
         PUSH_MAIN <= 1;
         @(posedge clk);
         PUSH_MAIN <= 0;
-        @(posedge clk);
         @(posedge clk);
         DATA_IN_TX <= 'b011001;
         @(posedge clk);

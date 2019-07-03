@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Wed Jul  3 21:59:01 2019
+[*] Wed Jul  3 23:26:42 2019
 [*]
 [dumpfile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/ProyectoDigitalesII/top/result_tx.vcd"
-[dumpfile_mtime] "Wed Jul  3 21:48:52 2019"
-[dumpfile_size] 21677
+[dumpfile_mtime] "Wed Jul  3 23:25:49 2019"
+[dumpfile_size] 23857
 [savefile] "/home/redkaiser/Digitales2/Ejemplos/Proyecto2/ProyectoDigitalesII/top/DEBUG_GTK.gtkw"
-[timestart] 302
+[timestart] 116
 [size] 1299 713
 [pos] -1 -1
-*-3.253591 335 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-3.253591 136 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tx_tb.
 [treeopen] tx_tb.proyecto.
 [treeopen] tx_tb.proyecto.MAIN.
@@ -40,16 +40,33 @@ tx_tb.proyecto.CONTROL_MACHINE.empties[4:0]
 tx_tb.proyecto.CONTROL_MACHINE.errors[4:0]
 @200
 -MAIN SIGNALS
-@22
+@c00022
 [color] 6
 tx_tb.proyecto.DATA_IN_TX[5:0]
+@28
+[color] 6
+(0)tx_tb.proyecto.DATA_IN_TX[5:0]
+[color] 6
+(1)tx_tb.proyecto.DATA_IN_TX[5:0]
+[color] 6
+(2)tx_tb.proyecto.DATA_IN_TX[5:0]
+[color] 6
+(3)tx_tb.proyecto.DATA_IN_TX[5:0]
+[color] 6
+(4)tx_tb.proyecto.DATA_IN_TX[5:0]
+[color] 6
+(5)tx_tb.proyecto.DATA_IN_TX[5:0]
+@1401200
+-group_end
+@22
 [color] 6
 tx_tb.proyecto.MAIN_HIGH[4:0]
 [color] 6
 tx_tb.proyecto.MAIN_LOW[4:0]
-@28
+@29
 [color] 6
 tx_tb.proyecto.MAIN_EMPTY
+@28
 [color] 6
 tx_tb.proyecto.MAIN_ERROR
 [color] 6
@@ -66,10 +83,9 @@ tx_tb.proyecto.POP_MAIN
 tx_tb.probador.PUSH_MAIN
 @200
 -VC0 SIGNALS
-@23
+@22
 [color] 2
 tx_tb.proyecto.data_to_VC0[5:0]
-@22
 [color] 2
 tx_tb.proyecto.VC0_HIGH[4:0]
 [color] 2
@@ -109,9 +125,24 @@ tx_tb.proyecto.VC1_ERR
 tx_tb.proyecto.VC1_VALID
 [color] 2
 tx_tb.proyecto.VC1_PAUSE
-@22
+@c00022
 [color] 2
 tx_tb.proyecto.DATA_OUT_VC1[5:0]
+@28
+[color] 2
+(0)tx_tb.proyecto.DATA_OUT_VC1[5:0]
+[color] 2
+(1)tx_tb.proyecto.DATA_OUT_VC1[5:0]
+[color] 2
+(2)tx_tb.proyecto.DATA_OUT_VC1[5:0]
+[color] 2
+(3)tx_tb.proyecto.DATA_OUT_VC1[5:0]
+[color] 2
+(4)tx_tb.proyecto.DATA_OUT_VC1[5:0]
+[color] 2
+(5)tx_tb.proyecto.DATA_OUT_VC1[5:0]
+@1401200
+-group_end
 @28
 [color] 2
 tx_tb.proyecto.POP_VC1
@@ -147,9 +178,25 @@ tx_tb.proyecto.POP_D0
 tx_tb.proyecto.PUSH_D0
 @200
 -D1 SIGNALS
-@22
+@c00022
 [color] 3
 tx_tb.proyecto.data_to_D1[5:0]
+@28
+[color] 3
+(0)tx_tb.proyecto.data_to_D1[5:0]
+[color] 3
+(1)tx_tb.proyecto.data_to_D1[5:0]
+[color] 3
+(2)tx_tb.proyecto.data_to_D1[5:0]
+[color] 3
+(3)tx_tb.proyecto.data_to_D1[5:0]
+[color] 3
+(4)tx_tb.proyecto.data_to_D1[5:0]
+[color] 3
+(5)tx_tb.proyecto.data_to_D1[5:0]
+@1401200
+-group_end
+@22
 [color] 3
 tx_tb.proyecto.D1_HIGH[4:0]
 [color] 3
