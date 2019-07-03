@@ -1,5 +1,8 @@
 `include "tx.v"
 `include "tx_t.v"
+//`include "synth_tx.v"
+//`include "cmos_cells.v"
+
 module tx_tb;
    /*AUTOWIRE*/
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
@@ -19,9 +22,12 @@ module tx_tb;
    wire [4:0]		Vco_high;		// From probador of tx_t.v
    wire [4:0]		Vco_low;		// From probador of tx_t.v
    wire			clk;			// From probador of tx_t.v
+   wire [5:0]		data_out;		// From synth of synth_tx.v
+   wire			err;			// From synth of synth_tx.v
    wire			init;			// From probador of tx_t.v
    wire [4:0]		main_fifo_high;		// From probador of tx_t.v
    wire [4:0]		main_fifo_low;		// From probador of tx_t.v
+   wire			valid_out;		// From synth of synth_tx.v
    // End of automatics
    
     tx proyecto(/*AUTOINST*/
@@ -68,5 +74,19 @@ module tx_tb;
 		  .D1_low		(D1_low[4:0]),
 		  .D1_high		(D1_high[4:0]));
 
+ // synth_tx synth(/*AUTOINST*/
+	/*	 // Outputs
+		 .data_out		(data_out[5:0]),
+		 .err			(err),
+		 .valid_out		(valid_out),
+		 // Inputs
+		 .RESET_L		(RESET_L),
+		 .address_read		(address_read[3:0]),
+		 .address_write		(address_write[3:0]),
+		 .clk			(clk),
+		 .data			(data[5:0]),
+		 .read			(read),
+		 .write			(write));
+   */
 
 endmodule // tx_tb

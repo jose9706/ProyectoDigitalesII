@@ -50,7 +50,10 @@ module tx_t(
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
+        DATA_IN_TX <= 'b111110;
+        PUSH_MAIN <= 1;
         @(posedge clk);
+        PUSH_MAIN <= 0;
         @(posedge clk);
         POP_D0<= 1;
         @(posedge clk);
@@ -60,8 +63,43 @@ module tx_t(
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
+        POP_D1<= 1;
+        @(posedge clk);
+        POP_D1 <= 0;
         @(posedge clk);
         @(posedge clk);
+        /*@(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b001111;
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b011110;
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        POP_D1<= 1;
+        @(posedge clk);
+        POP_D1 <= 0;
+        @(posedge clk);*/
+        @(posedge clk);
+        @(posedge clk);
+        
+
         $finish;
     end
 
