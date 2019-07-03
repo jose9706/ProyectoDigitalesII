@@ -19,6 +19,11 @@ module tx_t(
     output reg [4:0] D1_low,
     output reg [4:0] D1_high
 );
+    always @(posedge clk) begin
+        if(!MAIN_PAUSE)
+            PUSH_MAIN<=1;
+    end
+
     initial begin
         $dumpfile("result_tx.vcd");
         $dumpvars;
