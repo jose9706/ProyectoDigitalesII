@@ -150,7 +150,14 @@ module fifo_t(
         data_in<=6'b000101;
         @(posedge clk);
         data_in<=6'b000110;
-
+        //voy a vaciarlo tdo estando lleno a ver kerns
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
         @(posedge clk);
         $finish;
     end
