@@ -168,11 +168,11 @@ module tx(input clk,
             end
         end
         if(VC1_VALID) begin
-            if(data_from_VC0[4] == 0) begin
+            if(data_from_VC1[4] == 0) begin
                 data_to_D0 = data_from_VC1;
                 PUSH_D0 = 1;
             end
-            if(data_from_VC0[4] == 1) begin
+            if(data_from_VC1[4] == 1) begin
                 data_to_D1 = data_from_VC1;
                 PUSH_D1 = 1;
             end
