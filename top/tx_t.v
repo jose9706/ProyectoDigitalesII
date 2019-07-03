@@ -196,11 +196,43 @@ module tx_t(
         @(posedge clk);
         POP_D0 <= 0;
         @(posedge clk);
+        @(posedge clk); //otra pruebilla
+        DATA_IN_TX <= 'b010111; //17
+        PUSH_MAIN <= 1;
         @(posedge clk);
-
-
-
-
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b101111; //2F
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        POP_D1<= 1;
+        @(posedge clk);
+        POP_D1 <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        /*POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;*/
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
 
         $finish;
     end
