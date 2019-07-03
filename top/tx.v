@@ -19,7 +19,8 @@ module tx(input clk,
           input [4:0] D1_low,
           input [4:0] D1_high,
           output wire [5:0] DATA_OUT_D0,
-          output wire [5:0] DATA_OUT_D1
+          output wire [5:0] DATA_OUT_D1,
+          output wire MAIN_PAUSE
 );
     //REGS usados.
     reg [4:0] fifo_empties;

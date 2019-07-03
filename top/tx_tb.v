@@ -13,6 +13,7 @@ module tx_tb;
    wire [5:0]		DATA_OUT_D1;		// From proyecto of tx.v
    wire [4:0]		Do_high;		// From probador of tx_t.v
    wire [4:0]		Do_low;			// From probador of tx_t.v
+   wire			MAIN_PAUSE;		// From proyecto of tx.v
    wire			POP_D0;			// From probador of tx_t.v
    wire			POP_D1;			// From probador of tx_t.v
    wire			PUSH_MAIN;		// From probador of tx_t.v
@@ -22,18 +23,16 @@ module tx_tb;
    wire [4:0]		Vco_high;		// From probador of tx_t.v
    wire [4:0]		Vco_low;		// From probador of tx_t.v
    wire			clk;			// From probador of tx_t.v
-   wire [5:0]		data_out;		// From synth of synth_tx.v
-   wire			err;			// From synth of synth_tx.v
    wire			init;			// From probador of tx_t.v
    wire [4:0]		main_fifo_high;		// From probador of tx_t.v
    wire [4:0]		main_fifo_low;		// From probador of tx_t.v
-   wire			valid_out;		// From synth of synth_tx.v
    // End of automatics
    
     tx proyecto(/*AUTOINST*/
 		// Outputs
 		.DATA_OUT_D0		(DATA_OUT_D0[5:0]),
 		.DATA_OUT_D1		(DATA_OUT_D1[5:0]),
+		.MAIN_PAUSE		(MAIN_PAUSE),
 		// Inputs
 		.clk			(clk),
 		.RESET_L		(RESET_L),
@@ -72,7 +71,9 @@ module tx_tb;
 		  .Do_low		(Do_low[4:0]),
 		  .Do_high		(Do_high[4:0]),
 		  .D1_low		(D1_low[4:0]),
-		  .D1_high		(D1_high[4:0]));
+		  .D1_high		(D1_high[4:0]),
+		  // Inputs
+		  .MAIN_PAUSE		(MAIN_PAUSE));
 
  // synth_tx synth(/*AUTOINST*/
 	/*	 // Outputs

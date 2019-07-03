@@ -1,5 +1,6 @@
 
 module tx_t(
+    input MAIN_PAUSE,
     output reg clk,
     output reg RESET_L,
     output reg PUSH_MAIN,
