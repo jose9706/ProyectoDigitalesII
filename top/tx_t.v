@@ -68,7 +68,7 @@ module tx_t(
         POP_D1 <= 0;
         @(posedge clk);
         @(posedge clk);
-        /*@(posedge clk);
+        @(posedge clk); //
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
@@ -95,10 +95,73 @@ module tx_t(
         POP_D1<= 1;
         @(posedge clk);
         POP_D1 <= 0;
-        @(posedge clk);*/
+        @(posedge clk); ///
         @(posedge clk);
         @(posedge clk);
-        
+        DATA_IN_TX <= 'b011000;
+        @(posedge clk);
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        DATA_IN_TX <= 'b011000;
+        @(posedge clk);
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b011111;
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b010111;
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+    /*    PUSH_MAIN <= 0; //PRIMER TEST
+        //PUSH_MAIN <= 0; //SUAVE PARA VER
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b010001;
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        DATA_IN_TX <= 'b010110;
+        @(posedge clk);
+        DATA_IN_TX <= 'b110111;
+        @(posedge clk);
+        @(posedge clk);
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);*/ //AQUI TERMINA EL OTRO TEST
+        @(posedge clk);
+        //EMPIEZA SEGUNDO TEST RARO 
+        @(posedge clk);
+        @(posedge clk);
+        DATA_IN_TX <= 'b010001;
+        @(posedge clk);
+        DATA_IN_TX <= 'b010110;
+        @(posedge clk);
+        DATA_IN_TX <= 'b110111;
+        @(posedge clk);
+        @(posedge clk);
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk); //TERMINA SEGUNDO TEST 
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+
+
 
         $finish;
     end
