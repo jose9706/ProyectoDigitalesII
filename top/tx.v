@@ -280,4 +280,4 @@ module tx(input clk,
                                               D1_VALID); 
 
 
-endmodule // tx -Transmisor que incluye la interconexion de los modulos
+endmodule // tx -Transmisor que incluye la interconexion de los modulos**

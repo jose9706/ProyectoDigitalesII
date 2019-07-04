@@ -1,7 +1,7 @@
 `include "tx.v"
 `include "tx_t.v"
-//`include "synth_tx.v"
-//`include "cmos_cells.v"
+`include "synth_tx.v"
+`include "cmos_cells.v"
 
 module tx_tb;
    /*AUTOWIRE*/
@@ -9,11 +9,11 @@ module tx_tb;
    wire [4:0]		D1_high;		// From probador of tx_t.v
    wire [4:0]		D1_low;			// From probador of tx_t.v
    wire [5:0]		DATA_IN_TX;		// From probador of tx_t.v
-   wire [5:0]		DATA_OUT_D0;		// From proyecto of tx.v
-   wire [5:0]		DATA_OUT_D1;		// From proyecto of tx.v
+   wire [5:0]		DATA_OUT_D0;		// From proyecto of tx.v, ...
+   wire [5:0]		DATA_OUT_D1;		// From proyecto of tx.v, ...
    wire [4:0]		Do_high;		// From probador of tx_t.v
    wire [4:0]		Do_low;			// From probador of tx_t.v
-   wire			MAIN_PAUSE;		// From proyecto of tx.v
+   wire			MAIN_PAUSE;		// From proyecto of tx.v, ...
    wire			POP_D0;			// From probador of tx_t.v
    wire			POP_D1;			// From probador of tx_t.v
    wire			PUSH_MAIN;		// From probador of tx_t.v
@@ -75,19 +75,29 @@ module tx_tb;
 		  // Inputs
 		  .MAIN_PAUSE		(MAIN_PAUSE));
 
- // synth_tx synth(/*AUTOINST*/
-	/*	 // Outputs
-		 .data_out		(data_out[5:0]),
-		 .err			(err),
-		 .valid_out		(valid_out),
+  synth_tx synth(/*AUTOINST*/
+		 // Outputs
+		 .DATA_OUT_D0		(DATA_OUT_D0[5:0]),
+		 .DATA_OUT_D1		(DATA_OUT_D1[5:0]),
+		 .MAIN_PAUSE		(MAIN_PAUSE),
 		 // Inputs
+		 .D1_high		(D1_high[4:0]),
+		 .D1_low		(D1_low[4:0]),
+		 .DATA_IN_TX		(DATA_IN_TX[5:0]),
+		 .Do_high		(Do_high[4:0]),
+		 .Do_low		(Do_low[4:0]),
+		 .POP_D0		(POP_D0),
+		 .POP_D1		(POP_D1),
+		 .PUSH_MAIN		(PUSH_MAIN),
 		 .RESET_L		(RESET_L),
-		 .address_read		(address_read[3:0]),
-		 .address_write		(address_write[3:0]),
+		 .Vc1_high		(Vc1_high[4:0]),
+		 .Vc1_low		(Vc1_low[4:0]),
+		 .Vco_high		(Vco_high[4:0]),
+		 .Vco_low		(Vco_low[4:0]),
 		 .clk			(clk),
-		 .data			(data[5:0]),
-		 .read			(read),
-		 .write			(write));
-   */
+		 .init			(init),
+		 .main_fifo_high	(main_fifo_high[4:0]),
+		 .main_fifo_low		(main_fifo_low[4:0]));
+   
 
 endmodule // tx_tb

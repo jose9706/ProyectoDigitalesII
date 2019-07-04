@@ -45,105 +45,85 @@ module tx_t(
         D1_low<='h1;
         D1_high<='h3;
         @(posedge clk);
-        DATA_IN_TX<= 'b000000;
-        PUSH_MAIN<=1;
-        @(posedge clk);
-        DATA_IN_TX<= 'b000001;
-        @(posedge clk);
-        DATA_IN_TX<= 'b000010;
-        @(posedge clk);
-        DATA_IN_TX<= 'b000011;
-        @(posedge clk);
-        DATA_IN_TX<= 'b000100;
-        @(posedge clk);
-        DATA_IN_TX<= 'b000101;
-        @(posedge clk);
-        DATA_IN_TX<= 'b000110;
-        @(posedge clk);
-        DATA_IN_TX<= 'b000111;
-        POP_D0<=1;
-        POP_D1<=1;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001000;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001001;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001010;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001011;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001100;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001101;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001110;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001111;
-        @(posedge clk);
-        DATA_IN_TX<='b000000;
-        PUSH_MAIN<=0;
-        @(posedge clk); //end algo
         @(posedge clk);
         @(posedge clk);
+        DATA_IN_TX <= 'b000001; //01
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        DATA_IN_TX <= 'b000100; //04
+        @(posedge clk);
+        DATA_IN_TX <= 'b100001; //21 
+        @(posedge clk);
+        DATA_IN_TX <= 'b000011; //03
+        @(posedge clk); 
+        DATA_IN_TX <= 'b001111; //0F
+        @(posedge clk);
+        DATA_IN_TX <= 'b000111; //07
+        @(posedge clk);
+        DATA_IN_TX <= 'b110111; //37
+        @(posedge clk);
+        DATA_IN_TX <= 'b110010; //32
+        @(posedge clk);
+        PUSH_MAIN <= 0;
+        POP_D1<= 1;
+        @(posedge clk);
+        POP_D1 <= 0;
+        @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
+        @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
+        @(posedge clk);
+        POP_D1<= 1;
+        @(posedge clk);
+        POP_D1 <= 0;
+        @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
+        @(posedge clk);
+        POP_D0<= 1;
+        @(posedge clk);
+        POP_D0 <= 0;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk); //
+        @(posedge clk); //otra pruebilla comienza aqui
+        DATA_IN_TX <= 'b010111; //17
+        PUSH_MAIN <= 1;
+        @(posedge clk);
+        PUSH_MAIN <= 0;
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
-        @(posedge clk);        
+        DATA_IN_TX <= 'b011000; //18 voy a colocar al principio
+        PUSH_MAIN <= 1;
         @(posedge clk);
-
-        //PRUEBAS POST ALEJANDRO
-        POP_D0<=0;
-        POP_D1<=0;
-
-         @(posedge clk);
-        DATA_IN_TX<= 'b110000;
-        PUSH_MAIN<=1;
+        PUSH_MAIN <= 0;
         @(posedge clk);
-        DATA_IN_TX<= 'b010001;
         @(posedge clk);
-        DATA_IN_TX<= 'b000010;
         @(posedge clk);
-        DATA_IN_TX<= 'b100011;
+        DATA_IN_TX <= 'b101111; //2F
+        PUSH_MAIN <= 1;
         @(posedge clk);
-        DATA_IN_TX<= 'b010100;
+        PUSH_MAIN <= 0;
         @(posedge clk);
-        DATA_IN_TX<= 'b010101;
         @(posedge clk);
-        DATA_IN_TX<= 'b100110;
+        DATA_IN_TX <= 'b011001; // 19
         @(posedge clk);
-        DATA_IN_TX<= 'b010111;
-        POP_D0<=1;
-        POP_D1<=1;
         @(posedge clk);
-        DATA_IN_TX<= 'b111000;
         @(posedge clk);
-        DATA_IN_TX<= 'b011001;
         @(posedge clk);
-        DATA_IN_TX<= 'b101010;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001011;
-        @(posedge clk);
-        DATA_IN_TX<= 'b101100;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001101;
-        @(posedge clk);
-        DATA_IN_TX<= 'b011110;
-        @(posedge clk);
-        DATA_IN_TX<= 'b001111;
-        @(posedge clk);
-        DATA_IN_TX<='b011000;
-        PUSH_MAIN<=0;
+        DATA_IN_TX <= 'b101111; //2F voy a colocar al principio
+    
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
-        @(posedge clk);        
-        @(posedge clk);
-
-        //UNA PRUEBITA MAS???
-        
-
 
         $finish;
     end
