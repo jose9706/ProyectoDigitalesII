@@ -10507,10 +10507,10 @@ module synth_fsm(clk, reset, init, main_fifo_low, main_fifo_high, Vco_low, Vco_h
   );
   NOT _208_ (
     .A(reset),
-    .Y(_122_)
+    .Y(_123_)
   );
   NOR _209_ (
-    .A(_122_),
+    .A(_123_),
     .B(_043_),
     .Y(_053_)
   );
@@ -11012,10 +11012,10 @@ module synth_fsm(clk, reset, init, main_fifo_low, main_fifo_high, Vco_low, Vco_h
   NAND _309_ (
     .A(_053_),
     .B(Vc1_low[3]),
-    .Y(_123_)
+    .Y(_122_)
   );
   NAND _310_ (
-    .A(_123_),
+    .A(_122_),
     .B(_121_),
     .Y(_007_[3])
   );
@@ -11261,7 +11261,7 @@ module synth_fsm(clk, reset, init, main_fifo_low, main_fifo_high, Vco_low, Vco_h
   );
   DFF _359_ (
     .C(clk),
-    .D(_122_),
+    .D(_123_),
     .Q(state[0])
   );
   DFF _360_ (
@@ -11605,7 +11605,7 @@ endmodule
   wire D0_EMPTY;
   (* src = "tx.v:117" *)
   wire D0_ERR;
-  (* src = "tx.v:260" *)
+  (* src = "tx.v:263" *)
   (* unused_bits = "0" *)
   wire D0_FULL;
   (* src = "tx.v:58" *)
@@ -11614,14 +11614,14 @@ endmodule
   wire [4:0] D0_LOW;
   (* src = "tx.v:85" *)
   wire D0_PAUSE;
-  (* src = "tx.v:264" *)
+  (* src = "tx.v:267" *)
   (* unused_bits = "0" *)
   wire D0_VALID;
   (* src = "tx.v:112" *)
   wire D1_EMPTY;
   (* src = "tx.v:118" *)
   wire D1_ERR;
-  (* src = "tx.v:273" *)
+  (* src = "tx.v:276" *)
   (* unused_bits = "0" *)
   wire D1_FULL;
   (* src = "tx.v:60" *)
@@ -11630,7 +11630,7 @@ endmodule
   wire [4:0] D1_LOW;
   (* src = "tx.v:85" *)
   wire D1_PAUSE;
-  (* src = "tx.v:277" *)
+  (* src = "tx.v:280" *)
   (* unused_bits = "0" *)
   wire D1_VALID;
   (* src = "tx.v:20" *)
@@ -11675,7 +11675,7 @@ endmodule
   wire [4:0] MAIN_LOW;
   (* src = "tx.v:23" *)
   output MAIN_PAUSE;
-  (* src = "tx.v:136" *)
+  (* src = "tx.v:128" *)
   wire MAIN_VALID;
   (* src = "tx.v:8" *)
   input POP_D0;
@@ -11703,7 +11703,7 @@ endmodule
   wire VC0_EMPTY;
   (* src = "tx.v:115" *)
   wire VC0_ERR;
-  (* src = "tx.v:234" *)
+  (* src = "tx.v:237" *)
   (* unused_bits = "0" *)
   wire VC0_FULL;
   (* src = "tx.v:54" *)
@@ -11712,13 +11712,13 @@ endmodule
   wire [4:0] VC0_LOW;
   (* src = "tx.v:83" *)
   wire VC0_PAUSE;
-  (* src = "tx.v:148" *)
+  (* src = "tx.v:152" *)
   wire VC0_VALID;
   (* src = "tx.v:86" *)
   wire VC1_EMPTY;
   (* src = "tx.v:116" *)
   wire VC1_ERR;
-  (* src = "tx.v:247" *)
+  (* src = "tx.v:250" *)
   (* unused_bits = "0" *)
   wire VC1_FULL;
   (* src = "tx.v:56" *)
@@ -11727,7 +11727,7 @@ endmodule
   wire [4:0] VC1_LOW;
   (* src = "tx.v:83" *)
   wire VC1_PAUSE;
-  (* src = "tx.v:148" *)
+  (* src = "tx.v:152" *)
   wire VC1_VALID;
   (* src = "tx.v:16" *)
   input [4:0] Vc1_high;
@@ -12172,7 +12172,7 @@ endmodule
     .D(_002_),
     .Q(POP_VC1)
   );
-  (* src = "tx.v:183" *)
+  (* src = "tx.v:186" *)
   synth_fsm CONTROL_MACHINE (
     .D1_high(D1_high),
     .D1_low(D1_low),
@@ -12203,7 +12203,7 @@ endmodule
     .vco_h(VC0_HIGH),
     .vco_l(VC0_LOW)
   );
-  (* src = "tx.v:252" *)
+  (* src = "tx.v:255" *)
   \$paramod\fifo\FIFO_SIZE=4\PTR_ADRESS=2  D0 (
     .RESET_L(RESET_L),
     .al_empty_in(D0_LOW),
@@ -12219,7 +12219,7 @@ endmodule
     .pause(D0_PAUSE),
     .valid_out(D0_VALID)
   );
-  (* src = "tx.v:265" *)
+  (* src = "tx.v:268" *)
   \$paramod\fifo\FIFO_SIZE=4\PTR_ADRESS=2  D1 (
     .RESET_L(RESET_L),
     .al_empty_in(D1_LOW),
@@ -12235,7 +12235,7 @@ endmodule
     .pause(D1_PAUSE),
     .valid_out(D1_VALID)
   );
-  (* src = "tx.v:213" *)
+  (* src = "tx.v:216" *)
   \$paramod\fifo\FIFO_SIZE=4\PTR_ADRESS=2  MAIN (
     .RESET_L(RESET_L),
     .al_empty_in(MAIN_LOW),
@@ -12251,7 +12251,7 @@ endmodule
     .pause(MAIN_PAUSE),
     .valid_out(MAIN_VALID)
   );
-  (* src = "tx.v:226" *)
+  (* src = "tx.v:229" *)
   \$paramod\fifo\FIFO_SIZE=16\PTR_ADRESS=4  VC0 (
     .RESET_L(RESET_L),
     .al_empty_in(VC0_LOW),
@@ -12267,7 +12267,7 @@ endmodule
     .pause(VC0_PAUSE),
     .valid_out(VC0_VALID)
   );
-  (* src = "tx.v:239" *)
+  (* src = "tx.v:242" *)
   \$paramod\fifo\FIFO_SIZE=16\PTR_ADRESS=4  VC1 (
     .RESET_L(RESET_L),
     .al_empty_in(VC1_LOW),
